@@ -55,7 +55,7 @@ function create_scatterplot(data_file, title) {
             .attr("cx", function (d) { return x(d.price); })
             .attr("cy", function (d) { return y(d.rating); })
             .attr("r", 1.5)
-            .style("fill", "#69b3a2")
+            .style("fill", "#50B0B8")
 
         chart.append("text")
             .attr("y", 0 - (margin.top / 2))

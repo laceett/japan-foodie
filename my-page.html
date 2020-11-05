@@ -1,27 +1,111 @@
 <!DOCTYPE html>
-<html lang="">
+<html>
+<title>Exploring Japan’s Restaurants</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+    body,
+    html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
 
-<head>
-    <meta charset="utf-8">
-</head>
+    .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("./pics/izakaya.jpg");
+        min-height: 75%;
+    }
+
+    .menu {
+        display: none;
+    }
+</style>
 
 <body>
-    <div>
-        <h1>Exploring Japan’s Restaurants</h1>
-        <h3>Lacee Xu</h3>
-        <h3>20523452</h3>
-        <ul>
-            <li>Alpha Release Report: <a
-                    href="https://docs.google.com/document/d/1b9KXwAp1yWKy6YPMGSo84euA8gnh_jF0_ALj3-ObGEk/edit#"> Click
-                    here</a>
-            </li>
-        </ul>
+    <!-- Links -->
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+            <div class="w3-col s3">
+                <a href="#" class="w3-button w3-block w3-black">HOME</a>
+            </div>
+        </div>
     </div>
-    <h1>Japan Restaurants Front Page</h1>
-    <a href="./plots/page_1/index.html">Page_1</a><br>
-    <a href="/plots/page_2/index.html">Page_2</a><br>
-    <a href="/plots/page_3/index.html">Page_3</a>
+    <!-- Header -->
+    <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-middle w3-center">
+            <span class="w3-text-black" style="font-size:90px">Exploring<br>Japan’s<br>Restaurants</span>
+        </div>
+    </header>
+    <!-- Add a background color and large text to the whole page -->
+    <!-- <div class="w3-sand w3-grayscale w3-large"> -->
+    <!-- About Container -->
+    <div class="w3-container" id="about">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE PROJECT</span></h5>
+            <h4>Lacee Xu</h4>
+            <p>Alpha Release Report: <a
+                    href="https://docs.google.com/document/d/1b9KXwAp1yWKy6YPMGSo84euA8gnh_jF0_ALj3-ObGEk/edit#">Click
+                    here</a></p>
+            <p>My friends will always ask me about food and restaurant recommendations for Japan
+                since I lived in Tokyo for a couple of years and always loved the food and restaurant culture in
+                Japan. </p>
+            <p>It could be difficult to find a good restaurant in Japan as a visitor because most reviews and
+                articles are written in Japanese. With this project, I’d like to provide useful information about
+                where to find the best food in Japan through data visualization.</p>
+            <img src="./pics/restaurant_tokyo.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+        </div>
+    </div>
+    <!-- Content Container -->
+    <div class="w3-container" id="where" style="padding-bottom:32px;">
+        <div class="w3-content" style="max-width:700px">
+            <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">DATA VISUALIZATION</span></h5>
+            <p>Click Below to take a look</p>
+            <div class="w3-display-middle w3-center"></div>
+            <p>Page 1 :<a href="./plots/page_1/index.html">Page_1</a></p>
 
+            <h3>Restaurant Overview in Japan</h3>
+            <div class="prefecture">
+                <h5>Pie Chart of the Top Prefectures for Number of Reviews</h5>
+                <script src="./plots/page_2/piechart_prefecture.js"></script>
+            </div>
+            <div class="categories">
+                <h5>Pie Chart of the Top Categories for Number of Restaurants</h5>
+                <script src="./plots/page_2/piechart_categories.js"></script>
+            </div>
+
+            <h3>Analysis of Ramen and Sushi Plots</h3>
+            <div class="price">
+                <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
+                <script src="./plots/page_3/histogram_price.js"></script>
+            </div>
+            <div class="rating">
+                <h5>The Distribution of Ramen and Sushi Restaurant Ratings</h5>
+                <script src="./plots/page_3/histogram_rating.js"></script>
+            </div>
+            <div class="correlation">
+                <h5>The Correlation of Ramen and Sushi Restaurant Ratings and Price</h5s>
+                    <script src="./plots/page_3/scatter_correlation.js"></script>
+            </div>
+            <br>
+            <p>To be continued... :)</p><br><br>
+            <img src="./pics/restaurant_home.jpg" class="w3-image" style="width:100%">
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+        <p>Created by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                class="w3-hover-text-green">Lacee Xu</a></p>
+    </footer>
 </body>
+
+<!-- <script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+<script src="./plots/page_3/choropleth_japan.js"></script> -->
 
 </html>

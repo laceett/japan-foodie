@@ -1,11 +1,11 @@
-## Welcome to Exploring Japan’s Restaurants
+# Welcome to Exploring Japan’s Restaurants ⚡️ [[GitHub Pages](https://laceett.github.io/japan-foodie/my-page.html)]
 
 ### Lacee Xu
 
 # Description
 My friends will always ask me about food and restaurant recommendations for Japan since I lived in Tokyo for a couple of years and always loved the food and restaurant culture in Japan. 
 It could be difficult to find a good restaurant in Japan as a visitor because most reviews and articles are written in Japanese. With this project, I’d like to provide useful information about where to find the best food in Japan through data visualization.
-# Welcome to Exploring Japan’s Restaurants ⚡️ [[GitHub Pages](https://laceett.github.io/japan-foodie/my-page.html)]
+
 
 The goal of this project is to provide useful information about restaurants in Japan, in order to help users have more sense of where to find the best food in Japan through data visualization. To be more specific, the project includes main objectives such as a restaurant overview, analysis of different restaurant categories and availability, and how the ranking of the restaurant in different categories. 
 The project is implemented by using Python for data crawling, and D3 for data visualization. In the end, it will be hosted on GitHub Pages.
@@ -71,14 +71,6 @@ If you can help us with these. Please don't hesitate to open a [pull request](ht
 ## Contributors 
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
 

@@ -5,12 +5,14 @@
 # Description
 
 My friends will always ask me about food and restaurant recommendations for Japan since I lived in Tokyo for a couple of years and always loved the food and restaurant culture in Japan. 
+
 It could be difficult to find a good restaurant in Japan as a visitor because most reviews and articles are written in Japanese. With this project, I’d like to provide useful information about where to find the best food in Japan through data visualization.
 
 
 # Overview
 
 The goal of this project is to provide useful information about restaurants in Japan, in order to help users have more sense of where to find the best food in Japan through data visualization. To be more specific, the project includes main objectives such as a restaurant overview, analysis of different restaurant categories and availability, and how the ranking of the restaurant in different categories. 
+
 The project is implemented by using Python for data crawling, and D3 for data visualization. In the end, it will be hosted on GitHub Pages.
 
 
@@ -45,12 +47,17 @@ By the alpha release, I used the Scrapy framework to write a data crawler in Pyt
 In addition, these features have been completed:
 
 ✔️ A Restaurant overview of Japan such as key statistics in every major area and city.
+
   Page 1: A choropleth map of an overview of the number of restaurants in different prefectures in the whole of Japan. 
+  
   Page 2: Two pie charts, one displays the top prefectures that have the most reviews, and the other one displays the top food categories that have the most restaurants in the same section. 
   
 ✔️ Analysis of different restaurant categories. 
+
   Page 3: Three pairs of graphs to show the analysis of some popular food categories.
+  
   The first pair is two histograms of the price range of the sushi and the ramen. 
+  
   The second pair is two histograms of the rating distribution of the sushi and the ramen. The last pair, two scatter plots shows the relationship between the price and the rating of the sushi and the ramen. 
   
   

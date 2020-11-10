@@ -57,10 +57,12 @@ In addition, these features have been completed:
 ### Alpha Release Report: [[Click here](https://docs.google.com/document/d/1b9KXwAp1yWKy6YPMGSo84euA8gnh_jF0_ALj3-ObGEk/edit?usp=sharing)]
 
 
+
 ## Upcoming milestones
 
 ✔️ Show the restaurant’s availability by time and category.
   Using heatmap.
+  
 ✔️ Ranking of the top 10 sushi restaurants in Tokyo.
   Using bar charts.
 
@@ -69,6 +71,7 @@ In addition, these features have been completed:
 # Roadblocks
 
 ✔️ When fetching the restaurant data from https://tabelog.com/ using the Scrapy framework, I encountered the issue that the website only allows scraping 60 pages - which is round 1200 restaurants with a rating from 3~4 (out of 5). For the next release, I will add more functions in the code to get more evenly distributed and comprehensive data.
+
 ✔️ For the Choropleth map of restaurants in Japan Choropleth map Linked to another page due to D3 version compatibility. For the next release, will modify the code to the same version of D3.
 
 

@@ -1,33 +1,31 @@
 create_pie_catagory("./plots/page_2/japan_restaurant_category.csv")
 
 function create_pie_catagory(data_file) {
-
-    d3.csv(data_file, function (d) {
-        return {
-            category: d['Category'],
-            count: d['RestaurantCount'],
-        };
-    }).then(function (data) {
-
+    d3.csv(data_file, function (data) {
         let categoryData = []
         var otherCount = 0;
 
         // data processing
         console.log(data);
         for (var i = 0; i < data.length; i++) {
-            if (i < 5) {
+            if (i < 8) {
                 categoryData.push(data[i])
             }
             else {
-                otherCount += parseFloat(data[i].count)
+                otherCount += parseFloat(data[i].RestaurantCount)
             }
         }
 
-        categoryData.push({ "category": "Other", "count": otherCount });
+        // categoryData.push({"Category": "Other", "RestaurantCount": otherCount});
         console.log(categoryData)
 
         // draw bar chart
-        const margin = { top: 40, bottom: 20, left: 80, right: 20 }
+        const margin = {
+            top: 40,
+            bottom: 20,
+            left: 80,
+            right: 20
+        }
         var svgWidth = 400;
         var svgHeight = 400;
         var radius = Math.min(svgWidth, svgHeight) / 2 - margin.top
@@ -40,15 +38,29 @@ function create_pie_catagory(data_file) {
         var chart = svg.append('g')
             .attr("transform", "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")");
 
-        // .attr('transform', 'translate('+margin.left+','+margin.top+')')
+        var tooltip = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0)
+            .style("background", "lightsteelblue")
+            .style("border", "solid")
+            .style("border-width", "2px")
+            .style("border-radius", "5px")
+            .style("padding", "5px")
+            .style("width", "200px")
+            .style("height", "35px")
+
 
         var color = d3.scaleOrdinal()
             .domain(categoryData)
-            .range(d3.schemeSet3);
+            .range(["#92a8d1", "f7cac9", "#b1cbbb", "#b8a9c9", "#878f99", "f18973", "b7d7e8", "ffef96"])
+            // .range(d3.schemeSet2);
 
         var pie = d3.pie()
-            .value(function (d) { return d.count; })
-
+            .value(function (d) {
+                return d.RestaurantCount;
+            })
+                  
         var arc = d3.arc()
             .innerRadius(0)
             .outerRadius(radius)
@@ -64,7 +76,26 @@ function create_pie_catagory(data_file) {
             .attr("fill", function (d, i) {
                 return color(i);
             })
-            .attr("d", arc);
+            .attr("d", arc)
+                .on("mouseover", function (d, i) {
+                    console.log(d)
+                    d3.select(this).interrupt();
+                    d3.select(this)
+                        .style("fill", "#ff5500")
+                    tooltip.style("opacity", 1)
+                    tooltip
+                        .html("Food Category: " + d.data.Category + "<br>" + "# of Categories: " + d.data.RestaurantCount)
+                        .style('transform', `translate(${d3.mouse(this)[0]+150}px, ${d3.mouse(this)[1]-250}px)`)
+                        .style("opacity", 1)
+                })
+                .on("mouseout", function (d, i) {
+                    d3.select(this).interrupt();
+                    d3.select(this)
+                        .style("fill", function (d) {
+                            return color(i)
+                        })
+                    tooltip.style("opacity", 0)
+                });
 
         chart.selectAll("arc")
             .data(pie(categoryData))
@@ -72,10 +103,12 @@ function create_pie_catagory(data_file) {
             .append("text")
             .text(function (d) {
                 // console.log(d)
-                return d.data.category
-            })
-            .attr("transform", function (d) { return "translate(" + arc.centroid(d) + ")"; })
+                return d.data.Category
+                })
+                .attr("transform", function (d) {
+                            return "translate(" + arc.centroid(d) + ")";
+                })
             .style("text-anchor", "middle")
-            .style("font-size", 12)
+            .style("font-size", 12)                    
     });
 }

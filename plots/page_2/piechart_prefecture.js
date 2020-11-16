@@ -1,27 +1,20 @@
 create_pie_prefecture("./plots/page_2/num_of_restaurant.csv")
 
 function create_pie_prefecture(data_file) {
-
-    d3.csv(data_file, function (d) {
-        return {
-            prefecture: d['Prefecture'],
-            stores: d['Stores'],
-            reviews: d['Reviews'],
-
-        };
-    }).then(function (data) {
-
+    d3.csv(data_file, function (data) {
         let prefectureData = []
         var otherCount = 0;
 
         // data processing
         console.log(data);
         for (var i = 0; i < data.length; i++) {
-            var value = parseInt(data[i].reviews.replace(/,/g, ''))
+            var value = parseInt(data[i].Reviews.replace(/,/g, ''))
 
             if (i < 5) {
-
-                prefectureData.push({ "prefecture": data[i].prefecture, "reviews": value });
+                prefectureData.push({
+                    "prefecture": data[i].Prefecture,
+                    "reviews": value
+                });
             }
         }
 
@@ -29,7 +22,12 @@ function create_pie_prefecture(data_file) {
         console.log(prefectureData)
 
         // draw bar chart
-        const margin = { top: 40, bottom: 20, left: 80, right: 20 }
+        const margin = {
+            top: 40,
+            bottom: 20,
+            left: 80,
+            right: 20
+        }
         var svgWidth = 400;
         var svgHeight = 400;
         var radius = Math.min(svgWidth, svgHeight) / 2 - margin.top
@@ -42,15 +40,28 @@ function create_pie_prefecture(data_file) {
         var chart = svg.append('g')
             .attr("transform", "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")");
 
-        // .attr('transform', 'translate('+margin.left+','+margin.top+')')
+        var tooltip = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0)
+            .style("background", "lightsteelblue")
+            .style("border", "solid")
+            .style("border-width", "2px")
+            .style("border-radius", "5px")
+            .style("padding", "5px")
+            .style("width", "200px")
+            .style("height", "35px")
 
         var color = d3.scaleOrdinal()
             .domain(prefectureData)
-            .range(d3.schemeSet3);
+            .range(["#92a8d1", "#b1cbbb", "#878f99", "#b8a9c9", "f7cac9", "ffef96", "f18973", "b7d7e8"])
+            // .range(d3.interpolatePuBu);
 
         var pie = d3.pie()
-            .value(function (d) { return d.reviews; })
-
+            .value(function (d) {
+                return d.reviews;
+            })
+                  
         var arc = d3.arc()
             .innerRadius(0)
             .outerRadius(radius)
@@ -66,7 +77,25 @@ function create_pie_prefecture(data_file) {
             .attr("fill", function (d, i) {
                 return color(i);
             })
-            .attr("d", arc);
+            .attr("d", arc)
+                .on("mouseover", function (d, i) {
+                    d3.select(this).interrupt();
+                    d3.select(this)
+                        .style("fill", "#ff5500")
+                    tooltip.style("opacity", 1)
+                    tooltip
+                        .html("Prefecture: " + d.data.prefecture + "<br>" + "Num of Reviews: " + d.data.reviews)
+                        .style('transform', `translate(${d3.mouse(this)[0]+150}px, ${d3.mouse(this)[1]-750}px)`)
+                        .style("opacity", 1)
+                })
+                .on("mouseout", function (d, i) {
+                    d3.select(this).interrupt();
+                    d3.select(this)
+                        .style("fill", function (d) {
+                            return color(i)
+                        })
+                    tooltip.style("opacity", 0)
+                });
 
         chart.selectAll("arc")
             .data(pie(prefectureData))
@@ -75,20 +104,11 @@ function create_pie_prefecture(data_file) {
             .text(function (d) {
                 console.log(d)
                 return d.data.prefecture
-            })
-            .attr("transform", function (d) { return "translate(" + arc.centroid(d) + ")"; })
+                })
+                .attr("transform", function (d) {
+                    return "translate(" + arc.centroid(d) + ")";
+                })
             .style("text-anchor", "middle")
             .style("font-size", 12)
-
-        // svg
-        // .selectAll('mySlices')
-        // .data(data_ready)
-        // .enter()
-        // .append('text')
-        // .text(function(d){ return "grp " + d.data.key})
-        // .attr("transform", function(d) { return "translate(" + arcGenerator.centroid(d) + ")";  })
-        // .style("text-anchor", "middle")
-        // .style("font-size", 17)
-
     });
 }

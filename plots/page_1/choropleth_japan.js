@@ -3,8 +3,8 @@
 // https://d3-legend.susielu.com/
 
 
-d3.csv("num_of_restaurant.csv", function(data){
-d3.json("japan.json", function(error, jp) {
+d3.csv("./plots/page_1/num_of_restaurant.csv", function (data) {
+            d3.json("./plots/page_1/japan.json", function (error, jp) {
         
     const margin = {top: 50, bottom: 25, left: 50, right: 50}
     var svgWidth = 1000;

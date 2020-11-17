@@ -25,14 +25,14 @@ function create_pie_prefecture(data_file) {
         const margin = {
             top: 40,
             bottom: 20,
-            left: 80,
-            right: 20
+            left: 0,
+            right: 0
         }
         var svgWidth = 400;
         var svgHeight = 400;
         var radius = Math.min(svgWidth, svgHeight) / 2 - margin.top
 
-        var svg = d3.select('div.prefecture')
+        var svg = d3.select('div.prefectures')
             .append('svg')
             .attr('width', svgWidth + margin.left + margin.right)
             .attr('height', svgHeight + margin.top + margin.bottom);
@@ -40,7 +40,7 @@ function create_pie_prefecture(data_file) {
         var chart = svg.append('g')
             .attr("transform", "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")");
 
-        var tooltip = d3.select("body")
+        var tooltip = d3.select("div.tooltip_piecharts")
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
@@ -54,7 +54,7 @@ function create_pie_prefecture(data_file) {
 
         var color = d3.scaleOrdinal()
             .domain(prefectureData)
-            .range(["#92a8d1", "#b1cbbb", "#878f99", "#b8a9c9", "f7cac9", "ffef96", "f18973", "b7d7e8"])
+            .range(["#92a8d1", "#b1cbbb", "#878f99", "#b8a9c9", "#f7cac9", "#ffef96", "#f18973", "#b7d7e8"])
             // .range(d3.interpolatePuBu);
 
         var pie = d3.pie()
@@ -84,8 +84,8 @@ function create_pie_prefecture(data_file) {
                         .style("fill", "#ff5500")
                     tooltip.style("opacity", 1)
                     tooltip
-                        .html("Prefecture: " + d.data.prefecture + "<br>" + "Num of Reviews: " + d.data.reviews)
-                        .style('transform', `translate(${d3.mouse(this)[0]+150}px, ${d3.mouse(this)[1]-750}px)`)
+                        .html("Num of Reviews: " + d.data.reviews)
+                        .style('transform', `translate(${d3.mouse(this)[0]+450}px, ${d3.mouse(this)[1]+300}px)`)
                         .style("opacity", 1)
                 })
                 .on("mouseout", function (d, i) {
@@ -102,7 +102,6 @@ function create_pie_prefecture(data_file) {
             .enter()
             .append("text")
             .text(function (d) {
-                console.log(d)
                 return d.data.prefecture
                 })
                 .attr("transform", function (d) {

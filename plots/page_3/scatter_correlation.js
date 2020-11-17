@@ -1,7 +1,7 @@
-create_scatterplot("./plots/page_3/ramen_allprefecture.csv")
-create_scatterplot("./plots/page_3/sushi_allprefecture.csv")
+create_scatterplot("./plots/page_3/ramen_allprefecture.csv", "div.correlation_ramen")
+create_scatterplot("./plots/page_3/sushi_allprefecture.csv", "div.correlation_sushi")
 
-function create_scatterplot(data_file) {
+function create_scatterplot(data_file, div) {
 
     // d3.csv(data_file, function(d) {
     //     return {
@@ -51,13 +51,13 @@ function create_scatterplot(data_file) {
         const margin = {
             top: 40,
             bottom: 20,
-            left: 80,
-            right: 20
+            left: 50,
+            right: 50
         }
-        var svgWidth = 400;
-        var svgHeight = 400;
+        var svgWidth = 350;
+        var svgHeight = 450;
 
-        var svg = d3.select('div.correlation')
+        var svg = d3.select(div)
             .append('svg')
             .attr('width', svgWidth + margin.left + margin.right)
             .attr('height', svgHeight + margin.top + margin.bottom);

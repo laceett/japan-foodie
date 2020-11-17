@@ -47,6 +47,15 @@ min-height: 400px;
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
 
+.left_chart{
+    float:left;
+}
+.right_chart{
+    float:right;
+}
+.center_chart{
+    float:center;
+}
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1600px) {
 .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -151,9 +160,11 @@ min-height: 400px;
           <p class="w3-center"><em>This is a choropleth map of an overview of the number of restaurants in different
                   prefectures in the whole of Japan.</em><br>We can see that..... </p><br>
           <div class="w3-row-padding w3-center">
-              <div class="overview">
-                  <h5>Choropleth Map of Restaurants in Japan</h5>
-                  <script src="./plots/page_1/choropleth_japan.js"></script>
+            <div class="tooltip_choropleth">
+            </div>
+            <div class="overview">
+                <h5>Choropleth Map of Restaurants in Japan</h5>
+                <script src="./plots/page_1/choropleth_japan.js"></script>
             </div>
             </div>
 
@@ -161,18 +172,20 @@ min-height: 400px;
             <p class="w3-center"><em>These two pie charts, one displays the top prefectures that have the most reviews,
                     and the other one displays the top food categories that have the most restaurants in the same
                     section.</em><br>We can see that..... </p><br>
-            <div class="w3-row-padding w3-center">
-                <div class="prefecture">
-                    <h5>Pie Chart of the Top Prefectures for Number of Reviews</h5>
+
+            <div class="piecharts w3-row-padding w3-center">
+                <div class="tooltip_piecharts"></div>
+                <h5>(Left) Pie Chart of the Top Prefectures for Number of Reviews</h5>
+                <h5>(Right) Pie Chart of the Top Categories for Number of Restaurants</h5>
+                <div class="categories left_chart">
                     <script src="./plots/page_2/piechart_prefecture.js"></script>
                 </div>
-                <div class="categories">
-                    <h5>Pie Chart of the Top Categories for Number of Restaurants</h5>
+                <div class="prefectures right_chart">
                     <script src="./plots/page_2/piechart_categories.js"></script>
                 </div>
             </div>
 
-            <h3 class="w3-center">>Analysis of Ramen and Sushi Plots</h3>
+            <h3 class="w3-center">Analysis of Ramen and Sushi Plots</h3>
             <p class="w3-center"><em>Here are three pairs of graphs to show the analysis of some popular food
                     categories.
                     The first pair is two histograms of the price range of the sushi and the ramen. The second pair is
@@ -180,18 +193,25 @@ min-height: 400px;
                     plots shows the relationship between the price and the rating of the sushi and the ramen.</em><br>We
                 can see that..... </p><br>
             <div class="w3-row-padding w3-center w3-section">
-                <div class="price">
-                    <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
-                    <script src="./plots/page_3/histogram_price.js"></script>
-                </div>
-                <div class="rating">
-                    <h5>The Distribution of Ramen and Sushi Restaurant Ratings</h5>
-                    <script src="./plots/page_3/histogram_rating.js"></script>
-                </div>
-                <div class="correlation">
-                    <h5>The Correlation of Ramen and Sushi Restaurant Ratings and Price</h5s>
-                        <script src="./plots/page_3/scatter_correlation.js"></script>
-                </div>
+                <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
+                <script src="./plots/page_3/histogram_price.js"></script>
+                <div class="tooltip_price"></div>
+                <div class="price_ramen left_chart"></div>
+                <div class="price_sushi right_chart"></div>
+            </div>
+            <div class="w3-row-padding w3-center w3-section">
+                <h5>The Distribution of Ramen and Sushi Restaurant Ratings</h5>
+                <script src="./plots/page_3/histogram_rating.js"></script>
+                <div class="tooltip_rating"></div>
+                <div class="rating_ramen left_chart"></div>
+                <div class="rating_sushi right_chart"></div>
+            </div>
+            <div class="w3-row-padding w3-center w3-section">
+                <h5>The Correlation of Ramen and Sushi Restaurant Ratings and Price</h5s>
+                <script src="./plots/page_3/scatter_correlation.js"></script>
+                <div class="tooltip_correlation"></div>
+                <div class="correlation_ramen left_chart"></div>
+                <div class="correlation_sushi right_chart"></div>
             </div>
 
             <div class="w3-row-padding w3-center w3-section"></div>

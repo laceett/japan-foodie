@@ -6,9 +6,9 @@
 d3.csv("./plots/page_1/num_of_restaurant.csv", function (data) {
             d3.json("./plots/page_1/japan.json", function (error, jp) {
         
-    const margin = {top: 50, bottom: 25, left: 50, right: 50}
-    var svgWidth = 1000;
-    var svgHeight = 800;
+    const margin = {top: 50, bottom: 0, left: 0, right: 0}
+    var svgWidth = 800;
+    var svgHeight = 600;
     var lon = -138.0;
     var lat = 36;
     
@@ -52,7 +52,7 @@ d3.csv("./plots/page_1/num_of_restaurant.csv", function (data) {
     svg.select(".legendLinear")
       .call(legendLinear);
 
-      var Tooltip = d3.select("body")
+      var Tooltip = d3.select("div.tooltip_choropleth")
         .append("div")
         .attr("class", "tooltip")
         .style("opacity", 0)
@@ -62,7 +62,7 @@ d3.csv("./plots/page_1/num_of_restaurant.csv", function (data) {
         .style("border-radius", "5px")
         .style("padding", "5px")
         .style("width", "200px")
-        .style("height", "35px")
+        .style("height", "70px")
 
     svg.append("g")
         .selectAll("path")
@@ -80,7 +80,7 @@ d3.csv("./plots/page_1/num_of_restaurant.csv", function (data) {
                 Tooltip.style("opacity", 1)
                 Tooltip
                     .html("Prefecture: " + d.properties.NAME_1 + "<br>" + "Store Count: " + prefectureMap[d.properties.NAME_1])
-                    .style('transform', `translate(${d3.mouse(this)[0]+10}px, ${d3.mouse(this)[1]-950}px)`)
+                    .style('transform', `translate(${d3.mouse(this)[0]+10}px, ${d3.mouse(this)[1]+200}px)`)
                     .style("opacity", 1)
 
 

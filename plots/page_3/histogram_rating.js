@@ -1,7 +1,7 @@
-create_historgram_rating("./plots/page_3/ramen_allprefecture.csv")
-create_historgram_rating("./plots/page_3/sushi_allprefecture.csv")
+create_historgram_rating("./plots/page_3/ramen_allprefecture.csv", "div.rating_ramen")
+create_historgram_rating("./plots/page_3/sushi_allprefecture.csv", "div.rating_sushi")
 
-function create_historgram_rating(data_file) {
+function create_historgram_rating(data_file, div) {
     d3.csv(data_file, function (data) {
         let ratingData = []
 
@@ -18,15 +18,15 @@ function create_historgram_rating(data_file) {
 
         // draw bar chart
         const margin = {
-            top: 40,
+            top: 0,
             bottom: 20,
-            left: 80,
-            right: 20
+            left: 50,
+            right: 50
         }
-        var svgWidth = 400;
-        var svgHeight = 400;
+        var svgWidth = 350;
+        var svgHeight = 450;
 
-        var svg = d3.select('div.rating')
+        var svg = d3.select(div)
             .append('svg')
             .attr('width', svgWidth + margin.left + margin.right)
             .attr('height', svgHeight + margin.top + margin.bottom);
@@ -34,7 +34,7 @@ function create_historgram_rating(data_file) {
         var chart = svg.append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
         
-        var tooltip = d3.select("body")
+        var tooltip = d3.select("div.tooltip_rating")
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
@@ -44,7 +44,7 @@ function create_historgram_rating(data_file) {
             .style("border-radius", "5px")
             .style("padding", "5px")
             .style("width", "200px")
-            .style("height", "35px")
+            .style("height", "70px")
 
         var x = d3.scaleLinear()
             .rangeRound([0, svgWidth])
@@ -94,10 +94,9 @@ function create_historgram_rating(data_file) {
                         d3.select(this).interrupt();
                         d3.select(this)
                             .style("fill", "#e06377")
-                        tooltip.style("opacity", 1)
                         tooltip
                             .html("Count: " + d.length + "<br>" + "Rating range: " + d.x0 + " - " + d.x1)
-                            .style('transform', `translate(${d3.mouse(this)[0]+150}px, ${d3.mouse(this)[1]-700}px)`)
+                            // .style('transform', `translate(${d3.mouse(this)[0]+500}px, ${d3.mouse(this)[1]+300}px)`)
                             .style("opacity", 1)
                     })
                     .on("mouseout", function (d, i) {

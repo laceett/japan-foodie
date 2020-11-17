@@ -23,8 +23,8 @@ function create_pie_catagory(data_file) {
         const margin = {
             top: 40,
             bottom: 20,
-            left: 80,
-            right: 20
+            left: 0,
+            right: 0,
         }
         var svgWidth = 400;
         var svgHeight = 400;
@@ -38,7 +38,7 @@ function create_pie_catagory(data_file) {
         var chart = svg.append('g')
             .attr("transform", "translate(" + svgWidth / 2 + "," + svgHeight / 2 + ")");
 
-        var tooltip = d3.select("body")
+        var tooltip = d3.select("div.tooltip_piecharts")
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
@@ -53,7 +53,7 @@ function create_pie_catagory(data_file) {
 
         var color = d3.scaleOrdinal()
             .domain(categoryData)
-            .range(["#92a8d1", "f7cac9", "#b1cbbb", "#b8a9c9", "#878f99", "f18973", "b7d7e8", "ffef96"])
+            .range(["#92a8d1", "#f7cac9", "#b1cbbb", "#b8a9c9", "#878f99", "#f18973", "#b7d7e8", "#ffef96"])
             // .range(d3.schemeSet2);
 
         var pie = d3.pie()
@@ -78,14 +78,13 @@ function create_pie_catagory(data_file) {
             })
             .attr("d", arc)
                 .on("mouseover", function (d, i) {
-                    console.log(d)
                     d3.select(this).interrupt();
                     d3.select(this)
                         .style("fill", "#ff5500")
                     tooltip.style("opacity", 1)
                     tooltip
-                        .html("Food Category: " + d.data.Category + "<br>" + "# of Categories: " + d.data.RestaurantCount)
-                        .style('transform', `translate(${d3.mouse(this)[0]+150}px, ${d3.mouse(this)[1]-250}px)`)
+                        .html("Num of Categories: " + d.data.RestaurantCount)
+                        .style('transform', `translate(${d3.mouse(this)[0]+150}px, ${d3.mouse(this)[1]+250}px)`)
                         .style("opacity", 1)
                 })
                 .on("mouseout", function (d, i) {

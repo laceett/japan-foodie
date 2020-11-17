@@ -1,7 +1,7 @@
-create_scatterplot("./plots/page_3/ramen_allprefecture.csv", "div.correlation_ramen")
-create_scatterplot("./plots/page_3/sushi_allprefecture.csv", "div.correlation_sushi")
+create_scatterplot("./plots/page_3/ramen_allprefecture.csv", "Relationship between price & rating of Ramen", "div.correlation_ramen")
+create_scatterplot("./plots/page_3/sushi_allprefecture.csv", "Relationship between price & rating of Sushi", "div.correlation_sushi")
 
-function create_scatterplot(data_file, div) {
+function create_scatterplot(data_file, title, div) {
 
     // d3.csv(data_file, function(d) {
     //     return {
@@ -49,7 +49,7 @@ function create_scatterplot(data_file, div) {
         // }
 
         const margin = {
-            top: 40,
+            top: 30,
             bottom: 20,
             left: 50,
             right: 50
@@ -111,8 +111,16 @@ function create_scatterplot(data_file, div) {
                     tooltip.style("opacity", 0)
                 });
         
+        
+        chart.append("text")
+            .attr("y", 0 - (margin.top / 2))
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text(title);
+        
         chart.append('g')
             .call(y_axis);
+        
         chart.append('g')
             .attr('transform', 'translate(0,' + svgHeight + ')')
             .call(x_axis);

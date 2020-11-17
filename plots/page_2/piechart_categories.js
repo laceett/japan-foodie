@@ -1,6 +1,6 @@
-create_pie_catagory("./plots/page_2/japan_restaurant_category.csv")
+create_pie_catagory("./plots/page_2/japan_restaurant_category.csv", "Top Prefectures for Number of Restaurants")
 
-function create_pie_catagory(data_file) {
+function create_pie_catagory(data_file, title) {
     d3.csv(data_file, function (data) {
         let categoryData = []
         var otherCount = 0;
@@ -21,7 +21,7 @@ function create_pie_catagory(data_file) {
 
         // draw bar chart
         const margin = {
-            top: 40,
+            top: 30,
             bottom: 20,
             left: 0,
             right: 0,
@@ -83,7 +83,7 @@ function create_pie_catagory(data_file) {
                         .style("fill", "#ff5500")
                     tooltip.style("opacity", 1)
                     tooltip
-                        .html("Num of Categories: " + d.data.RestaurantCount)
+                        .html("Num of Restaurants: " + d.data.RestaurantCount)
                         .style('transform', `translate(${d3.mouse(this)[0]+150}px, ${d3.mouse(this)[1]+250}px)`)
                         .style("opacity", 1)
                 })
@@ -95,6 +95,13 @@ function create_pie_catagory(data_file) {
                         })
                     tooltip.style("opacity", 0)
                 });
+        
+        chart.append("text")
+            .attr("x", 0 - (margin.top * 5))
+            .attr("y", 0 - (margin.top * 6))
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text(title);
 
         chart.selectAll("arc")
             .data(pie(categoryData))

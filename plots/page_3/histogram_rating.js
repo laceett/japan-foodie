@@ -1,7 +1,7 @@
-create_historgram_rating("./plots/page_3/ramen_allprefecture.csv", "div.rating_ramen")
-create_historgram_rating("./plots/page_3/sushi_allprefecture.csv", "div.rating_sushi")
+create_historgram_rating("./plots/page_3/ramen_allprefecture.csv", "Rating range of Ramen", "div.rating_ramen")
+create_historgram_rating("./plots/page_3/sushi_allprefecture.csv", "Rating range of Sushi", "div.rating_sushi")
 
-function create_historgram_rating(data_file, div) {
+function create_historgram_rating(data_file, title, div) {
     d3.csv(data_file, function (data) {
         let ratingData = []
 
@@ -18,7 +18,7 @@ function create_historgram_rating(data_file, div) {
 
         // draw bar chart
         const margin = {
-            top: 0,
+            top: 30,
             bottom: 20,
             left: 50,
             right: 50
@@ -108,8 +108,15 @@ function create_historgram_rating(data_file, div) {
                         tooltip.style("opacity", 0)
                     });
         
+        chart.append("text")
+            .attr("y", 0 - (margin.top / 2))
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text(title);
+        
         chart.append('g')
             .call(y_axis);
+        
         chart.append('g')
             .attr('transform', 'translate(0,' + svgHeight + ')')
             .call(x_axis);

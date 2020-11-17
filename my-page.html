@@ -11,171 +11,206 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-  height: 100%;
-  color: #777;
-  line-height: 1.8;
-}
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Lato", sans-serif;
+    }
 
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
-background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+    body,
+    html {
+        height: 100%;
+        color: #777;
+        line-height: 1.8;
+    }
 
-/* First image (Logo. Full height) */
-.bgimg-1 {
-background-image: url('./pics/izakaya.jpg');
-min-height: 100%;
-}
+    /* Create a Parallax Effect */
+    .bgimg-1,
+    .bgimg-2,
+    .bgimg-3,
+    .bgimg-4,
+    .bgimg-5 {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-/* Second image (Map) */
-.bgimg-2 {
-background-image: url("./pics/sushi.jpg");
-min-height: 400px;
-}
+    /* First image (Logo. Full height) */
+    .bgimg-1 {
+        background-image: url('./pics/izakaya.jpg');
+        min-height: 100%;
+    }
 
-/* Third image (Contact) */
-.bgimg-3 {
-background-image: url("./pics/kani.jpg");
-min-height: 400px;
-}
+    /* Second image (Map) */
+    .bgimg-2 {
+        background-image: url("./pics/sushi.jpg");
+        min-height: 400px;
+    }
 
-/* Forth image (Contact) */
-.bgimg-4 {
-background-image: url("./pics/uni.jpg");
-min-height: 400px;
-}
+    /* Third image (Contact) */
+    .bgimg-3 {
+        background-image: url("./pics/kani.jpg");
+        min-height: 400px;
+    }
 
-/* Fifth image (Contact) */
-.bgimg-5 {
-background-image: url("./pics/chef.jpg");
-min-height: 400px;
-}
+    /* Forth image (Contact) */
+    .bgimg-4 {
+        background-image: url("./pics/uni.jpg");
+        min-height: 400px;
+    }
 
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
+    /* Fifth image (Contact) */
+    .bgimg-5 {
+        background-image: url("./pics/chef.jpg");
+        min-height: 400px;
+    }
 
-.left_chart{
-    float:left;
-}
-.right_chart{
-    float:right;
-}
-.center_chart{
-    float:center;
-}
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
-background-attachment: scroll;
-min-height: 400px;
-}
-}
+    .w3-wide {
+        letter-spacing: 10px;
+    }
+
+    .w3-hover-opacity {
+        cursor: pointer;
+    }
+
+    .left_chart {
+        float: left;
+    }
+
+    .right_chart {
+        float: right;
+    }
+
+    .center_chart {
+        float: center;
+    }
+
+    /* Turn off parallax scrolling for tablets and phones */
+    @media only screen and (max-device-width: 1600px) {
+
+        .bgimg-1,
+        .bgimg-2,
+        .bgimg-3,
+        .bgimg-4,
+        .bgimg-5 {
+            background-attachment: scroll;
+            min-height: 400px;
+        }
+    }
 </style>
+
 <body>
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
-          onclick="toggleFunction()" title="Toggle Navigation Menu">
-          <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="w3-bar-item w3-button">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-      <a href="#map" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> MAP</a>
-      <a href="#overview" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> OVERVIEW</a>
-      <a href="#analysis" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> ANALYSIS</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-          <i class="fa fa-search"></i>
-      </a>
-  </div>
-<!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="#map" class="w3-bar-item w3-button" onclick="toggleFunction()">MAP</a>
-    <a href="#overview" class="w3-bar-item w3-button" onclick="toggleFunction()">OVERVIEW</a>
-    <a href="#analysis" class="w3-bar-item w3-button" onclick="toggleFunction()">ANALYSIS</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-  </div>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar" id="myNavbar">
+            <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#home" class="w3-bar-item w3-button">HOME</a>
+            <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+            <a href="#map" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-map-marker"></i> MAP</a>
+            <a href="#overview" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pie-chart"></i> OVERVIEW</a>
+            <a href="#analysis" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-bar-chart"></i> ANALYSIS</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+            <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+            <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+            <a href="#map" class="w3-bar-item w3-button" onclick="toggleFunction()">MAP</a>
+            <a href="#overview" class="w3-bar-item w3-button" onclick="toggleFunction()">OVERVIEW</a>
+            <a href="#analysis" class="w3-bar-item w3-button" onclick="toggleFunction()">ANALYSIS</a>
+            <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+            <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+        </div>
+    </div>
 
-  <!-- First Parallax Image with Logo Text -->
-  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-          <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Exploring <span
-                  class="w3-hide-small">Japan’s</span> Restaurants</span>
-      </div>
-  </div>
+    <!-- First Parallax Image with Logo Text -->
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Exploring <span
+                    class="w3-hide-small">Japan’s</span> Restaurants</span>
+        </div>
+    </div>
 
-  <!-- Container (About Section) -->
-  <div class="w3-content w3-container w3-padding-64" id="about">
-      <h3 class="w3-center">ABOUT THE PROJECT</h3>
-      <p class="w3-center"><em>I love Japanese food</em></p>
-      <p>My friends will always ask me about food and restaurant recommendations for Japan
-        since I lived in Tokyo for a couple of years and always loved the food and restaurant culture in
-        Japan. </p>
-    <p>It could be difficult to find a good restaurant in Japan as a visitor because most reviews and
-        articles are written in Japanese. With this project, I’d like to provide useful information about
-        where to find the best food in Japan through data visualization.</p>
-      <div class="w3-row">
-          <div class="w3-col m6 w3-center w3-padding-large">
-              <img src="./pics/restaurant_tokyo.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off"
-                  alt="Photo of Me" width="500" height="333">
-          </div>
-          <div class="w3-col m6 w3-hide-small w3-padding-large">
-              <p>Author <b><i class="fa fa-user w3-margin-right"></i>Lacee Xu</b></p><br>
-              <p>Alpha Release Report: <a
-                      href="https://docs.google.com/document/d/1b9KXwAp1yWKy6YPMGSo84euA8gnh_jF0_ALj3-ObGEk/edit?usp=sharing">Click
-                      here</a></p>
-              <p>Belta Release Report: <a
-                      href="https://docs.google.com/document/d/1b9KXwAp1yWKy6YPMGSo84euA8gnh_jF0_ALj3-ObGEk/edit?usp=sharing">Click
-                      here TODO!!</a></p>
-              <p>Data resource: <a href="https://tabelog.com/">Tabelog website</a> - the largest and most comprehensive
-                  restaurant review website in Japan.
-              </p>
-          </div>
-      </div>
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about">
+        <h3 class="w3-center">ABOUT THE PROJECT</h3>
+        <p class="w3-center"><em>I love Japanese food</em></p>
+        <p>My friends will always ask me about food and restaurant recommendations for Japan
+            since I lived in Tokyo for a couple of years and always loved the food and restaurant culture in
+            Japan. </p>
+        <p>It could be difficult to find a good restaurant in Japan as a visitor because most reviews and
+            articles are written in Japanese. With this project, I’d like to provide useful information about
+            where to find the best food in Japan through data visualization.</p>
+        <p>The project is implemented by using Python for data crawling, D3 for data visualization, and it is hosted on
+            GitHub Pages.</p>
+        <div class="w3-row">
+            <div class="w3-col m6 w3-center w3-padding-large">
+                <img src="./pics/restaurant_tokyo.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off"
+                    alt="Photo of Me" width="500" height="333">
+            </div>
+            <div class="w3-col m6 w3-hide-small w3-padding-large">
+                <p>Author <b><i class="fa fa-user w3-margin-right"></i>Lacee Xu</b></p>
+                <p>Project Proposal: <a
+                        href="https://docs.google.com/document/d/1BnH7AzfA7mrE8QrUV2AI72W4pwg5Sa-rZclhKwBsMLY/edit?usp=sharing">Click
+                        here</a></p>
+                <p>Alpha Release Report: <a
+                        href="https://docs.google.com/document/d/1b9KXwAp1yWKy6YPMGSo84euA8gnh_jF0_ALj3-ObGEk/edit?usp=sharing">Click
+                        here</a></p>
+                <p>Belta Release Slides: <a href="">Click
+                        here TODO: add the link!!</a></p>
+                <p>Data: The data is fetched using the Scrapy framework for the <a href="https://tabelog.com/">Tabelog
+                        website</a> - the
+                    largest and most
+                    comprehensive
+                    restaurant review website in Japan.
+                </p>
+            </div>
+        </div>
 
-      </div>
+    </div>
 
-      <div class="w3-row w3-center w3-dark-grey w3-padding-16">
-          <div class="w3-quarter w3-section">
-              <span class="w3-xlarge">14+</span><br>
-              Partners
-          </div>
-          <div class="w3-quarter w3-section">
-              <span class="w3-xlarge">55+</span><br>
-              Projects Done
-          </div>
-          <div class="w3-quarter w3-section">
-              <span class="w3-xlarge">89+</span><br>
-              Happy Clients
-          </div>
-          <div class="w3-quarter w3-section">
-              <span class="w3-xlarge">150+</span><br>
-              Meetings
-          </div>
-      </div>
+    <div class="w3-row w3-center w3-dark-grey w3-padding-16">
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">14+</span><br>
+            Partners
+        </div>
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">55+</span><br>
+            Projects Done
+        </div>
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">89+</span><br>
+            Happy Clients
+        </div>
+        <div class="w3-quarter w3-section">
+            <span class="w3-xlarge">150+</span><br>
+            Meetings
+        </div>
+    </div>
 
-      <!-- Second Parallax Image with MAP Text -->
-      <div class="bgimg-2 w3-display-container w3-opacity-min">
-          <div class="w3-display-middle">
-              <span class="w3-xxlarge w3-text-white w3-wide">MAP</span>
-          </div>
-      </div>
+    <!-- Second Parallax Image with MAP Text -->
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">MAP</span>
+        </div>
+    </div>
 
-      <!-- Container (Map Section) -->
-      <div class="w3-content w3-container w3-padding-64" id="map">
-          <h3 class="w3-center">Restaurants in Japan</h3>
-          <p class="w3-center"><em>This is a choropleth map of an overview of the number of restaurants in different
-                  prefectures in the whole of Japan.</em><br>We can see that..... </p><br>
-          <div class="w3-row-padding w3-center">
+    <!-- Container (Map Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="map">
+        <h3 class="w3-center">Restaurants in Japan</h3>
+        <p class="w3-center"><em>This is a choropleth map of an overview of the number of restaurants in different
+                prefectures in the whole of Japan.</em><br>We can see that..... </p><br>
+        <div class="w3-row-padding w3-center">
             <div class="tooltip_choropleth">
             </div>
             <div class="overview">
@@ -185,114 +220,101 @@ min-height: 400px;
         </div>
     </div>
 
-        <!-- Third Parallax Image with Overview Text -->
-        <div class="bgimg-3 w3-display-container w3-opacity-min">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">OVERVIEW</span>
+    <!-- Third Parallax Image with Overview Text -->
+    <div class="bgimg-3 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">OVERVIEW</span>
+        </div>
+    </div>
+
+    <div class="w3-content w3-container w3-padding-64" id="overview">
+        <h3 class="w3-center">Restaurant Overview</h3>
+        <p class="w3-center"><em>These two pie charts, one displays the top prefectures that have the most reviews,
+                and the other one displays the top food categories that have the most restaurants in the same
+                section.</em><br>We can see that..... </p><br>
+
+        <div class="piecharts w3-row-padding w3-center">
+            <div class="tooltip_piecharts"></div>
+            <h5>(Left) Pie Chart of the Top Categories for Number of Restaurants</h5>
+            <h5>(Right) Pie Chart of the Top Prefectures for Number of Reviews</h5>
+            <div class="categories left_chart">
+                <script src="./plots/page_2/piechart_prefecture.js"></script>
+            </div>
+            <div class="prefectures right_chart">
+                <script src="./plots/page_2/piechart_categories.js"></script>
             </div>
         </div>
+    </div>
 
-        <div class="w3-content w3-container w3-padding-64" id="overview">
-            <h3 class="w3-center">Restaurant Overview</h3>
-            <p class="w3-center"><em>These two pie charts, one displays the top prefectures that have the most reviews,
-                    and the other one displays the top food categories that have the most restaurants in the same
-                    section.</em><br>We can see that..... </p><br>
-
-            <div class="piecharts w3-row-padding w3-center">
-                <div class="tooltip_piecharts"></div>
-                <h5>(Left) Pie Chart of the Top Categories for Number of Restaurants</h5>
-                <h5>(Right) Pie Chart of the Top Prefectures for Number of Reviews</h5>
-                <div class="categories left_chart">
-                    <script src="./plots/page_2/piechart_prefecture.js"></script>
-                </div>
-                <div class="prefectures right_chart">
-                    <script src="./plots/page_2/piechart_categories.js"></script>
-                </div>
-            </div>
+    <!-- Forth Parallax Image with Contact Text -->
+    <div class="bgimg-4 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">ANALYSIS</span>
         </div>
+    </div>
 
-        <!-- Forth Parallax Image with Contact Text -->
-        <div class="bgimg-4 w3-display-container w3-opacity-min">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">ANALYSIS</span>
-            </div>
+    <div class="w3-content w3-container w3-padding-64" id="analysis">
+        <h3 class="w3-center">Analysis of Ramen and Sushi Plots</h3>
+        <p class="w3-center"><em>Here are three pairs of graphs to show the analysis of some popular food
+                categories.
+                The first pair is two histograms of the price range of the sushi and the ramen. The second pair is
+                two histograms of the rating distribution of the sushi and the ramen. The last pair, two scatter
+                plots shows the relationship between the price and the rating of the sushi and the ramen.</em><br>We
+            can see that..... </p><br>
+        <div class="w3-row-padding w3-center w3-section">
+            <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
+            <script src="./plots/page_3/histogram_price.js"></script>
+            <div class="tooltip_price"></div>
+            <div class="price_ramen left_chart"></div>
+            <div class="price_sushi right_chart"></div>
         </div>
-                        
-        <div class="w3-content w3-container w3-padding-64" id="analysis">
-            <h3 class="w3-center">Analysis of Ramen and Sushi Plots</h3>
-            <p class="w3-center"><em>Here are three pairs of graphs to show the analysis of some popular food
-                    categories.
-                    The first pair is two histograms of the price range of the sushi and the ramen. The second pair is
-                    two histograms of the rating distribution of the sushi and the ramen. The last pair, two scatter
-                    plots shows the relationship between the price and the rating of the sushi and the ramen.</em><br>We
-                can see that..... </p><br>
-            <div class="w3-row-padding w3-center w3-section">
-                <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
-                <script src="./plots/page_3/histogram_price.js"></script>
-                <div class="tooltip_price"></div>
-                <div class="price_ramen left_chart"></div>
-                <div class="price_sushi right_chart"></div>
-            </div>
-            <div class="w3-row-padding w3-center w3-section">
-                <h5>The Distribution of Ramen and Sushi Restaurant Ratings</h5>
-                <script src="./plots/page_3/histogram_rating.js"></script>
-                <div class="tooltip_rating"></div>
-                <div class="rating_ramen left_chart"></div>
-                <div class="rating_sushi right_chart"></div>
-            </div>
-            <div class="w3-row-padding w3-center w3-section">
-                <h5>The Correlation of Ramen and Sushi Restaurant Ratings and Price</h5s>
+        <div class="w3-row-padding w3-center w3-section">
+            <h5>The Distribution of Ramen and Sushi Restaurant Ratings</h5>
+            <script src="./plots/page_3/histogram_rating.js"></script>
+            <div class="tooltip_rating"></div>
+            <div class="rating_ramen left_chart"></div>
+            <div class="rating_sushi right_chart"></div>
+        </div>
+        <div class="w3-row-padding w3-center w3-section">
+            <h5>The Correlation of Ramen and Sushi Restaurant Ratings and Price</h5s>
                 <script src="./plots/page_3/scatter_correlation.js"></script>
                 <div class="tooltip_correlation"></div>
                 <div class="correlation_ramen left_chart"></div>
                 <div class="correlation_sushi right_chart"></div>
-            </div>
-
         </div>
 
-        <!-- Fifth Parallax Image with Contact Text -->
-        <div class="bgimg-5 w3-display-container w3-opacity-min">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-            </div>
+    </div>
+
+    <!-- Fifth Parallax Image with Contact Text -->
+    <div class="bgimg-5 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
         </div>
+    </div>
 
-        <!-- Container (Contact Section) -->
-        <div class="w3-content w3-container w3-padding-64" id="contact">
-            <h3 class="w3-center">MY CONTACT INFO</h3>
-            <p class="w3-center"><em>I'd love your feedback!</em></p>
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+        <h3 class="w3-center">MY CONTACT INFO</h3>
+        <p class="w3-center"><em>I'd love your feedback!</em></p>
 
-            <div class="w3-row w3-padding-32 w3-section">
-                <div class="w3-col m4 w3-container">
-                    <img src="./pics/lacee.JPG" class="w3-image w3-round" style="width:100%">
-                </div>
-                <div class="w3-col m8 w3-panel">
-                    <div class="w3-large w3-margin-bottom">
-                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
-                        San Francisco, US<br>
-                        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
-                        txu24@usfca.edu<br>
-                    </div>
-                    <p><i class="fa fa-coffee"></i> Feel free to leave me a note:</p>
-                    <form action="/action_page.php" target="_blank">
-                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                            <div class="w3-half">
-                                <input class="w3-input w3-border" type="text" placeholder="Name" required
-                                    name="Name">
-                            </div>
-                            <div class="w3-half">
-                                <input class="w3-input w3-border" type="text" placeholder="Email" required
-                                    name="Email">
-                            </div>
-                        </div>
-                        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-                        <button class="w3-button w3-black w3-right w3-section" type="submit">
-                            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-                        </button>
-                    </form>
+        <div class="w3-row w3-padding-32 w3-section">
+            <div class="w3-col m4 w3-container">
+                <img src="./pics/morty.jpg" class="w3-image w3-round" style="width:100%">
+            </div>
+            <div class="w3-col m8 w3-panel">
+                <div class="w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                    San Francisco, US<br>
+                    <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Feel free to
+                    leave
+                    me a message: <a href="mailto:txu24@usfca.edu">txu24@usfca.edu</a><br>
+                    <i class="fa fa-instagram fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Welcome to
+                    follow me: <a href="https://www.instagram.com/mortyisthemortiest/?hl=en">mortyisthemortiest</a>
+                    <br>
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
@@ -305,7 +327,7 @@ min-height: 400px;
             <i class="fa fa-twitter w3-hover-opacity"></i>
             <i class="fa fa-linkedin w3-hover-opacity"></i>
         </div>
-        <p>Created by <a href="https://www.linkedin.com/in/lacee-xu-a567947a/" title="W3.CSS" target="_blank"
+        <p>Created by <a href="https://www.linkedin.com/in/lacee-xu-a567947a/" target="_blank"
                 class="w3-hover-text-green">lacee.xu</a></p>
     </footer>
     <script>
@@ -343,4 +365,5 @@ min-height: 400px;
     </script>
 
 </body>
+
 </html>

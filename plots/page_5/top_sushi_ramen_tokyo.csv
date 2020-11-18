@@ -1,0 +1,21 @@
+prefecture,category,name,rating,num_reviews,price_range
+Tokyo,sushi,Sugita Town,4.80,296,¥20000-¥29999
+Tokyo,sushi,Sushi Saito,4.75,550,¥20000-¥29999
+Tokyo,sushi,Amanmoto,4.71,222,¥30000-¥39999
+Tokyo,sushi,Sushi Namba Hibiya,4.69,231,¥30000-¥39999
+Tokyo,sushi,Sushi Arai,4.58,299,¥30000-¥39999
+Tokyo,sushi,Mitani,4.57,187,¥40000-¥49999
+Tokyo,sushi,Naomitsu,4.56,195,¥30000-¥39999
+Tokyo,sushi,Sawada,4.55,218,¥40000-¥49999
+Tokyo,sushi,Sushi Kimura,4.55,208,¥30000-¥39999
+Tokyo,sushi,Sushi Sho,4.47,493,¥30000-¥39999
+Tokyo,ramen,Nonokura,4.09,382,¥999
+Tokyo,ramen,Men'an Chitose,4.06,382,¥999
+Tokyo,ramen,Menson Rage,3.98,382,¥1000-¥1999
+Tokyo,ramen,Mendokoro Kinari,3.97,293,¥999
+Tokyo,ramen,Kohaku Shijimi,3.97,209,¥999
+Tokyo,ramen,Kashiwagi,3.95,401,¥999
+Tokyo,ramen,Menya Sakurai,3.95,385,¥999
+Tokyo,ramen,Chinese Soba Nishino,3.94,515,¥1000-¥1999
+Tokyo,ramen,Ramen Yamaguchi,3.94,355,¥999
+Tokyo,ramen,Pure Handmade Daruma,3.94,220,¥1000-¥1999

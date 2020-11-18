@@ -1,0 +1,21 @@
+prefecture,category,name,rating,num_reviews,price_range
+Kyoto,sushi,Saeki,4.22,68,¥20000-¥29999
+Kyoto,sushi,Sushi Matsumoto,3.81,138,¥20000-¥29999
+Kyoto,sushi,Izuu,3.78,353,¥2000-¥2999
+Kyoto,sushi,Izuju,3.78,353,¥2000-¥2999
+Kyoto,sushi,Suehiro,3.74,126,¥2000-¥2999
+Kyoto,sushi,Sakai,3.73,126,¥4000-¥4999
+Kyoto,sushi,Gion Sushi Tadaysu,3.73,68,¥30000-¥39999
+Kyoto,sushi,Chidoritei,3.71,86,¥4000-¥4999
+Kyoto,sushi,Torimatsu,3.69,155,¥1000-¥1999
+Kyoto,sushi,Masugatya,3.69,122,¥1000-¥1999
+Kyoto,ramen,Haruko Ameyo,3.90,144,¥999
+Kyoto,ramen,My ramen apparel shop,3.79,615,¥999
+Kyoto,ramen,Honke Daiichi,3.77,1795,¥999
+Kyoto,ramen,Menya Gokudori,3.77,772,¥999
+Kyoto,ramen,Ramen Touhchi,3.77,425,¥999
+Kyoto,ramen,Kataguruma,3.77,383,¥999
+Kyoto,ramen,Menya Takei,3.77,382,¥999
+Kyoto,ramen,Yamazaki Menjiro,3.77,378,¥999
+Kyoto,ramen,Muttepou,3.76,557,¥999
+Kyoto,ramen,Noodles and Nijo Takakura,3.75,540,¥999

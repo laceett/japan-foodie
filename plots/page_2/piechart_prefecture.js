@@ -21,7 +21,7 @@ function create_pie_prefecture(data_file, title) {
         // prefectureData.push({"prefecture": "Other", "stores": otherCount});
         console.log(prefectureData)
 
-        // draw bar chart
+        // draw pie chart
         const margin = {
             top: 30,
             bottom: 20,
@@ -29,8 +29,8 @@ function create_pie_prefecture(data_file, title) {
             right: 0
         }
         var svgWidth = 400;
-        var svgHeight = 400;
-        var radius = Math.min(svgWidth, svgHeight) / 2 - margin.top
+        var svgHeight = 500;
+        var radius = Math.min(svgWidth, svgHeight) / 2 - margin.top + 30
 
         var svg = d3.select('div.prefectures')
             .append('svg')
@@ -44,24 +44,23 @@ function create_pie_prefecture(data_file, title) {
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
-            .style("background", "lightsteelblue")
+            .style("background", "#FFFF00")
             .style("border", "solid")
             .style("border-width", "2px")
             .style("border-radius", "5px")
             .style("padding", "5px")
-            .style("width", "200px")
-            .style("height", "35px")
+            .style("width", "230px")
+            .style("height", "40px")
 
         var color = d3.scaleOrdinal()
             .domain(prefectureData)
-            .range(["#92a8d1", "#b1cbbb", "#878f99", "#b8a9c9", "#f7cac9", "#ffef96", "#f18973", "#b7d7e8"])
-            // .range(d3.interpolatePuBu);
+            .range(["#b3cde3", "#ffffcc", "#f2f2f2", "#ccebc5", "#fddaec"])
 
         var pie = d3.pie()
             .value(function (d) {
                 return d.reviews;
             })
-                  
+
         var arc = d3.arc()
             .innerRadius(0)
             .outerRadius(radius)
@@ -78,28 +77,28 @@ function create_pie_prefecture(data_file, title) {
                 return color(i);
             })
             .attr("d", arc)
-                .on("mouseover", function (d, i) {
-                    d3.select(this).interrupt();
-                    d3.select(this)
-                        .style("fill", "#ff5500")
-                    tooltip.style("opacity", 1)
-                    tooltip
-                        .html("Num of Reviews: " + d.data.reviews)
-                        .style('transform', `translate(${d3.mouse(this)[0]+450}px, ${d3.mouse(this)[1]+300}px)`)
-                        .style("opacity", 1)
-                })
-                .on("mouseout", function (d, i) {
-                    d3.select(this).interrupt();
-                    d3.select(this)
-                        .style("fill", function (d) {
-                            return color(i)
-                        })
-                    tooltip.style("opacity", 0)
-                });
-        
+            .on("mouseover", function (d, i) {
+                d3.select(this).interrupt();
+                d3.select(this)
+                    .style("fill", "#ff5500")
+                tooltip.style("opacity", 1)
+                tooltip
+                    .html("Num of Reviews: " + d.data.reviews)
+                    .style('transform', `translate(${d3.mouse(this)[0] + 450}px, ${d3.mouse(this)[1] + 280}px)`)
+                    .style("opacity", 1)
+            })
+            .on("mouseout", function (d, i) {
+                d3.select(this).interrupt();
+                d3.select(this)
+                    .style("fill", function (d) {
+                        return color(i)
+                    })
+                tooltip.style("opacity", 0)
+            });
+
         chart.append("text")
             .attr("x", 0 - (margin.top * 5))
-            .attr("y", 0 - (margin.top * 6))
+            .attr("y", 0 - (margin.top * 6) - 40)
             .style("font-size", "16px")
             .style("text-decoration", "underline")
             .text(title);
@@ -110,11 +109,11 @@ function create_pie_prefecture(data_file, title) {
             .append("text")
             .text(function (d) {
                 return d.data.prefecture
-                })
-                .attr("transform", function (d) {
-                    return "translate(" + arc.centroid(d) + ")";
-                })
+            })
+            .attr("transform", function (d) {
+                return "translate(" + arc.centroid(d) + ")";
+            })
             .style("text-anchor", "middle")
-            .style("font-size", 12)
+            .style("font-size", 11.5)
     });
 }

@@ -145,13 +145,15 @@
     <div class="w3-content w3-container w3-padding-64" id="about">
         <h3 class="w3-center">ABOUT THE PROJECT</h3>
         <p class="w3-center"><em>I love Japanese food</em></p>
+        <p>Japan is the country in the world with the highest density of restaurants/cafeterias in the world with one
+            restaurant for every 266 people. The second place is for the United States with 566,020 and a density of one
+            restaurant for every 547 people. (A Greek in Japan, 2010)</p>
         <p>My friends will always ask me about food and restaurant recommendations for Japan
             since I lived in Tokyo for a couple of years and always loved the food and restaurant culture in
-            Japan. </p>
-        <p>It could be difficult to find a good restaurant in Japan as a visitor because most reviews and
+            Japan. It could be difficult to find a good restaurant in Japan as a visitor because most reviews and
             articles are written in Japanese. With this project, I’d like to provide useful information about
             where to find the best food in Japan through data visualization.</p>
-        <p>The project is implemented by using Python for data crawling, D3 for data visualization, and it is hosted on
+        <p>This project is implemented by using Python for data crawling, D3 for data visualization, and it is hosted on
             GitHub Pages.</p>
         <div class="w3-row">
             <div class="w3-col m6 w3-center w3-padding-large">
@@ -212,17 +214,17 @@
                 prefectures of Japan.</em></p>
         <p>Here we explore <b>Tokyo</b> is the best foodie areas among all the prefectures, it has plenty of areas where
             superb
-            restaurants.<br>
-            Sushi, ramen, tempura, yakiniku, wagyu... the list of famous dishes that represent Japan goes on and
+            restaurants. Sushi, ramen, tempura, yakiniku, wagyu... the list of famous dishes that represent Japan goes
+            on and
             on, but there are plenty of lesser-known regional specialties from all around Japan.</p>
 
         <p>For example, <b>Hokkaido</b> - by far Japan’s largest prefecture, its food, nature, and history in Hokkaido
             offers
-            something very different than what most may think of when they visualize Japan.<br>
-            Not only snowboarding and skiing in Hokkaido is on every serious powder chasers radar, but Hokkaido is also
+            something very different than what most may think of when they visualize Japan. Not only snowboarding and
+            skiing in Hokkaido is on every serious powder chasers radar, but Hokkaido is also
             known for its fresh seafood, dairy
             products,
-            the most popular types of ramen, Yubari King Melon - the best Melon I've ever eaten! &#x1F60B;
+            the most popular types of ramen, Yubari King Melon - the best Melon I've ever eaten! &#x1F60B;<br>
             Check out the link below to see what Hokkaido offers you:<br>
             <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
                 href="https://jw-webmagazine.com/hokkaido-bucket-list-2019-20-best-things-to-do-in-hokkaido-9a28ed3c7183/">20
@@ -236,8 +238,7 @@
         </p>
 
         <div class="w3-row-padding w3-center">
-            <div class="tooltip_choropleth">
-            </div>
+            <div class="tooltip_choropleth"></div>
             <div class="overview">
                 <h5>Choropleth Map of Restaurants in Japan</h5>
                 <p>Hover over to check the number of restaurants in different prefectures.</p>
@@ -255,20 +256,113 @@
 
     <div class="w3-content w3-container w3-padding-64" id="overview">
         <h3 class="w3-center">Restaurant Overview</h3>
-        <p class="w3-center"><em>These two pie charts, one displays the top prefectures that have the most reviews,
+        <p class="w3-center"><em>Below are two pie charts - one displays the top prefectures that have the most reviews,
                 and the other one displays the top food categories that have the most restaurants in the same
-                section.</em><br>We can see that..... </p><br>
+                section.</em></p>
+
+        <p>From the Pie Chart on the left, we can see that <b>Izakaya</b> is the category with the most restaurant in
+            Japan.
+            Izakaya is one of Japan’s quintessential experiences. Izakaya (居酒屋) is composed of three kanjis:
+            “be/stay”(居), “alcohol”(酒) and “shop” (屋). If there is a favorite place for the Japanese, those are
+            undoubtedly the Izakaya.<br>Here are some articles about the Izakaya, check out the
+            rules that the Japanese already know but foreigners may not so that it doesn’t result in unfortunate
+            misunderstandings hurtful for your wallet. &#x1F61D;</p>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+            href="hhttps://boutiquejapan.com/izakayas-in-japan/">EATING AND DRIKING
+            AT AN IZAKAYA IN JAPAN</a><br>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+            href="https://tokyocheapo.com/food-and-drink/drinking/beginners-guide-japanese-izakaya/">A BEGINNER'S
+            GUIDE TO THE JAPANESE IZAKAYA</a><br>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a href="https://favy-jp.com/topics/1097">5 MOST
+            POLULAR IZAKAYAS IN JAPAN</a><br>
+
+        <p>From the Pie Chart on the right, we can see that <b>Tokyo</b> is the prefecture that has the most number of
+            reviews. When it
+            comes to global culinary centers of excellence, one city stands head and shoulders above the rest: Tokyo.
+            (CNN, 2017)<br>
+            "People are very passionate about their craft," he says. "You see one guy and he only does one thing. Every
+            day. That for me is perfection -- and that's why Michelin comes here and drops lots of stars." says Virgilio
+            Martinez - who owns the world's fourth-best restaurant -- Central, in Lima.<br>
+            "Many chefs, foodies and people in our industry say Tokyo is the world's best food city, but this doesn't
+            mean only Michelin restaurants," says Chef Hidetoki Sato - who works at one of Tokyo's most renowned
+            three-star restaurants, Ryugin. "It means all categories of food, from street food, fast food, takeaway to
+            fine dining. It truly is a food paradise."</p>
 
         <div class="piecharts w3-row-padding w3-center">
             <div class="tooltip_piecharts"></div>
-            <h5>(Left) Pie Chart of the Top Categories for Number of Restaurants</h5>
-            <h5>(Right) Pie Chart of the Top Prefectures for Number of Reviews</h5>
+            <h5>Pie Charts of the Top Categories & Top Prefectures</h5>
             <div class="categories left_chart">
                 <script src="./plots/page_2/piechart_prefecture.js"></script>
             </div>
             <div class="prefectures right_chart">
                 <script src="./plots/page_2/piechart_categories.js"></script>
             </div>
+        </div>
+
+        <div class="w3-row-padding w3-center">
+            <h5>Best restaurants in Tokyo you have to try</h5>
+            <div class="w3-col m3">
+                <img src="./pics/Ise.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Ise Sueyoshi">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Sekihotei.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Sekihotei">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Ohara.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Ohara">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Suzuki.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Suzuki">
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-col m3">
+                <img src="./pics/Haramasa.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Haramasa">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Ryugin.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Ryugin">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Nanzenji.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Nanzenji Hyotei">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Arakicho.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Arakicho Tatsuya">
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-col m3">
+                <img src="./pics/Kudan.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Kudan Otsuka">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Ao.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Ao">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/Terunari.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Terunari">
+            </div>
+            <div class="w3-col m3">
+                <img src="./pics/SushiSho.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
+                    alt="Sushi Sho">
+            </div>
+        </div>
+    </div>
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i
+                class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption" class="w3-opacity w3-large"></p>
         </div>
     </div>
 
@@ -282,31 +376,67 @@
     <div class="w3-content w3-container w3-padding-64" id="analysis">
         <h3 class="w3-center">Analysis of Ramen and Sushi Plots</h3>
         <p class="w3-center"><em>Here are three pairs of graphs to show the analysis of some popular food
-                categories.
-                The first pair is two histograms of the price range of the sushi and the ramen. The second pair is
-                two histograms of the rating distribution of the sushi and the ramen. The last pair, two scatter
-                plots shows the relationship between the price and the rating of the sushi and the ramen.</em><br>We
-            can see that..... </p><br>
+                categories.<br>
+                The first pair is two histograms of the price range of the sushi and the ramen.<br> The second pair is
+                two histograms of the rating distribution of the sushi and the ramen.<br> The last pair, two scatter
+                plots shows the relationship between the price and the rating of the sushi and the ramen.</em></p>
+        <br><br><br>
+
         <div class="w3-row-padding w3-center w3-section">
             <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
+            <p>From the Pie Chart on the left, we can see that <b>Izakaya</b> is the category with the most restaurant
+                in
+                Japan.
+                Izakaya is one of Japan’s quintessential experiences. Here are some articles about the Izakaya, check
+                out the
+                rules that the Japanese already know but foreigners may not so that it doesn’t result in unfortunate
+                misunderstandings hurtful for your wallet. &#x1F61D;</p>
+            <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+                href="hhttps://boutiquejapan.com/izakayas-in-japan/">EATING AND DRIKING
+                AT AN IZAKAYA IN JAPAN</a>
+
             <script src="./plots/page_3/histogram_price.js"></script>
             <div class="tooltip_price"></div>
             <div class="price_ramen left_chart"></div>
             <div class="price_sushi right_chart"></div>
-        </div>
+        </div><br><br><br>
+
         <div class="w3-row-padding w3-center w3-section">
             <h5>The Distribution of Ramen and Sushi Restaurant Ratings</h5>
+            <p>From the Pie Chart on the left, we can see that <b>Izakaya</b> is the category with the most restaurant
+                in
+                Japan.
+                Izakaya is one of Japan’s quintessential experiences.<br>Here are some articles about the Izakaya, check
+                out the
+                rules that the Japanese already know but foreigners may not so that it doesn’t result in unfortunate
+                misunderstandings hurtful for your wallet. &#x1F61D;</p>
+            <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+                href="hhttps://boutiquejapan.com/izakayas-in-japan/">EATING AND DRIKING
+                AT AN IZAKAYA IN JAPAN</a>
+
             <script src="./plots/page_3/histogram_rating.js"></script>
             <div class="tooltip_rating"></div>
             <div class="rating_ramen left_chart"></div>
             <div class="rating_sushi right_chart"></div>
-        </div>
+        </div><br><br><br>
+
         <div class="w3-row-padding w3-center w3-section">
-            <h5>The Correlation of Ramen and Sushi Restaurant Ratings and Price</h5s>
-                <script src="./plots/page_3/scatter_correlation.js"></script>
-                <div class="tooltip_correlation"></div>
-                <div class="correlation_ramen left_chart"></div>
-                <div class="correlation_sushi right_chart"></div>
+            <h5>The Correlation of Ramen and Sushi Restaurant Ratings and Price</h5>
+            <p>From the Pie Chart on the left, we can see that <b>Izakaya</b> is the category with the most restaurant
+                in
+                Japan.
+                Izakaya is one of Japan’s quintessential experiences. Here are some articles about the Izakaya, check
+                out the
+                rules that the Japanese already know but foreigners may not so that it doesn’t result in unfortunate
+                misunderstandings hurtful for your wallet. &#x1F61D;</p>
+            <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+                href="hhttps://boutiquejapan.com/izakayas-in-japan/">EATING AND DRIKING
+                AT AN IZAKAYA IN JAPAN</a><br><br><br>
+
+            <script src="./plots/page_3/scatter_correlation.js"></script>
+            <div class="tooltip_correlation"></div>
+            <div class="correlation_ramen left_chart"></div>
+            <div class="correlation_sushi right_chart"></div>
         </div>
 
     </div>

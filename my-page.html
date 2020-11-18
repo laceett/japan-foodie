@@ -33,7 +33,9 @@
     .bgimg-2,
     .bgimg-3,
     .bgimg-4,
-    .bgimg-5 {
+    .bgimg-5,
+    .bgimg-6,
+    .bgimg-8 {
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -52,20 +54,32 @@
         min-height: 400px;
     }
 
-    /* Third image (Contact) */
+    /* Third image (Overview) */
     .bgimg-3 {
         background-image: url("./pics/wagyu.jpg");
         min-height: 400px;
     }
 
-    /* Forth image (Contact) */
+    /* Forth image (Analysis) */
     .bgimg-4 {
         background-image: url("./pics/uni.jpg");
         min-height: 400px;
     }
 
-    /* Fifth image (Contact) */
+    /* Fifth image (Time) */
     .bgimg-5 {
+        background-image: url("./pics/yakitori.png");
+        min-height: 400px;
+    }
+
+    /* Sixth image (Ranking) */
+    .bgimg-6 {
+        background-image: url("./pics/yakitori.png");
+        min-height: 400px;
+    }
+
+    /* Final image (Contact) */
+    .bgimg-8 {
         background-image: url("./pics/chef.jpg");
         min-height: 400px;
     }
@@ -97,7 +111,9 @@
         .bgimg-2,
         .bgimg-3,
         .bgimg-4,
-        .bgimg-5 {
+        .bgimg-5,
+        .bgimg-6,
+        .bgimg-8 {
             background-attachment: scroll;
             min-height: 400px;
         }
@@ -117,6 +133,8 @@
             <a href="#map" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-map-marker"></i> MAP</a>
             <a href="#overview" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pie-chart"></i> OVERVIEW</a>
             <a href="#analysis" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-bar-chart"></i> ANALYSIS</a>
+            <a href="#time" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-calendar"></i> TIME</a>
+            <a href="#ranking" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-thumbs-up"></i> RANKING</a>
             <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
                 <i class="fa fa-search"></i>
@@ -254,6 +272,7 @@
         </div>
     </div>
 
+    <!-- Container (Overview Section) -->
     <div class="w3-content w3-container w3-padding-64" id="overview">
         <h3 class="w3-center">Restaurant Overview</h3>
         <p class="w3-center"><em>Below are two pie charts - one displays the top prefectures that have the most reviews,
@@ -373,6 +392,7 @@
         </div>
     </div>
 
+    <!-- Container (Anaysis Section) -->
     <div class="w3-content w3-container w3-padding-64" id="analysis">
         <h3 class="w3-center">Analysis of Ramen and Sushi Plots</h3>
         <p class="w3-center"><em>Here are three pairs of graphs to show the analysis of some popular food
@@ -426,115 +446,139 @@
             <div class="correlation_sushi right_chart"></div>
         </div>
 
+    </div>
 
-
-        <div class="w3-content w3-container w3-padding-64" id="analysis">
-            <h3 class="w3-center">Heatmap</h3>
-            <p class="w3-center"><em>heatmap </p><br>
-            <div class="w3-row-padding w3-center w3-section">
-                <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
-                <script src="./plots/page_4/heatmap.js"></script>
-                <div class="tooltip_hours"></div>
-                <div class="hours"></div>
-            </div>
+    <!-- Fifth Parallax Image with Contact Text -->
+    <div class="bgimg-5 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">TIME</span>
         </div>
-        <div class="w3-content w3-container w3-padding-64" id="analysis">
-            <h3 class="w3-center">Barchart</h3>
-            <p class="w3-center"><em>barchart </p><br>
-            <script src="./plots/page_5/barchart_ranking.js"></script>
-            <div class="w3-row-padding w3-center w3-section">
-                <h5>Top barchart ramen and sushi Tokyo</h5>
-                <div class="tooltip_ranking"></div>
-                <div class="ranking"></div>
-            </div>
-            <div class="w3-row-padding w3-center w3-section">
-                <h5>Top barchart ramen and sushi Kyoto</h5>
-                <div class="tooltip_ranking_kyoto"></div>
-                <div class="ranking_kyoto"></div>
-            </div>
+    </div>
 
-
-
+    <!-- Container (Time Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="time">
+        <h3 class="w3-center">Restaurant avaliable time Heatmap</h3>
+        <p class="w3-center"><em>Below is the heatmap of the restaurant’s availability by time and category.</em></p>
+        <!-- <p>From the Pie Chart </p>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+            href="hhttps://boutiquejapan.com/izakayas-in-japan/">EATING AND DRIKING
+            AT AN IZAKAYA IN JAPAN</a><br> -->
+        <div class="w3-row-padding w3-center w3-section">
+            <h5>The Distribution of Ramen and Sushi Restaurant Prices</h5>
+            <script src="./plots/page_4/heatmap.js"></script>
+            <div class="tooltip_hours"></div>
+            <div class="hours"></div>
         </div>
+    </div>
+    </div>
 
-        <!-- Fifth Parallax Image with Contact Text -->
-        <div class="bgimg-5 w3-display-container w3-opacity-min">
-            <div class="w3-display-middle">
-                <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-            </div>
+    <!-- Sixth Parallax Image with Contact Text -->
+    <div class="bgimg-6 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">RANKING</span>
         </div>
+    </div>
 
-        <!-- Container (Contact Section) -->
-        <div class="w3-content w3-container w3-padding-64" id="contact">
-            <h3 class="w3-center">MY CONTACT INFO</h3>
-            <p class="w3-center"><em>I'd love your feedback!</em></p>
+    <!-- Container (Ranking Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="ranking">
+        <h3 class="w3-center">Restaurant Ranking</h3>
+        <p class="w3-center"><em>Below are two bar charts - Ranking bof the top restaurants in Tokyo and Kyoto.</em></p>
+        <!-- <p>From the Pie Chart..</p>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+            href="hhttps://boutiquejapan.com/izakayas-in-japan/">EATING AND DRIKING
+            AT AN IZAKAYA IN JAPAN</a><br> -->
+        <script src="./plots/page_5/barchart_ranking.js"></script>
+        <div class="w3-row-padding w3-center w3-section">
+            <h5>Top Ramen and Sushi restaurants in Tokyo</h5>
+            <div class="tooltip_ranking"></div>
+            <div class="ranking"></div>
+        </div>
+        <div class="w3-row-padding w3-center w3-section">
+            <h5>Top Ramen and Sushi restaurants in Kyoto</h5>
+            <div class="tooltip_ranking_kyoto"></div>
+            <div class="ranking_kyoto"></div>
+        </div>
+    </div>
+    </div>
 
-            <div class="w3-row w3-padding-32 w3-section">
-                <div class="w3-col m4 w3-container">
-                    <img src="./pics/morty.jpg" class="w3-image w3-round" style="width:100%">
+    <!-- Last Parallax Image with Contact Text -->
+    <div class="bgimg-8 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+        </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+        <h3 class="w3-center">MY CONTACT INFO</h3>
+        <p class="w3-center"><em>I'd love your feedback!</em></p>
+
+        <div class="w3-row w3-padding-32 w3-section">
+            <div class="w3-col m4 w3-container">
+                <img src="./pics/morty.jpg" class="w3-image w3-round" style="width:100%">
+            </div>
+            <div class="w3-col m8 w3-panel">
+                <div class="w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
+                    San Francisco, US<br>
+                    <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Feel free to
+                    leave
+                    me a message: <a href="mailto:txu24@usfca.edu">txu24@usfca.edu</a><br>
+                    <i class="fa fa-instagram fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Welcome to
+                    follow me: <a href="https://www.instagram.com/mortyisthemortiest/?hl=en">mortyisthemortiest</a>
+                    <br>
                 </div>
-                <div class="w3-col m8 w3-panel">
-                    <div class="w3-large w3-margin-bottom">
-                        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>
-                        San Francisco, US<br>
-                        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Feel free to
-                        leave
-                        me a message: <a href="mailto:txu24@usfca.edu">txu24@usfca.edu</a><br>
-                        <i class="fa fa-instagram fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Welcome to
-                        follow me: <a href="https://www.instagram.com/mortyisthemortiest/?hl=en">mortyisthemortiest</a>
-                        <br>
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Footer -->
-        <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-            <div class="w3-xlarge w3-section">
-                <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                <i class="fa fa-instagram w3-hover-opacity"></i>
-                <i class="fa fa-snapchat w3-hover-opacity"></i>
-                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                <i class="fa fa-twitter w3-hover-opacity"></i>
-                <i class="fa fa-linkedin w3-hover-opacity"></i>
-            </div>
-            <p>Created by <a href="https://www.linkedin.com/in/lacee-xu-a567947a/" target="_blank"
-                    class="w3-hover-text-green">lacee.xu</a></p>
-        </footer>
-        <script>
-            // Modal Image Gallery
-            function onClick(element) {
-                document.getElementById("img01").src = element.src;
-                document.getElementById("modal01").style.display = "block";
-                var captionText = document.getElementById("caption");
-                captionText.innerHTML = element.alt;
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+        <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+        <div class="w3-xlarge w3-section">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+        <p>Created by <a href="https://www.linkedin.com/in/lacee-xu-a567947a/" target="_blank"
+                class="w3-hover-text-green">lacee.xu</a></p>
+    </footer>
+    <script>
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+
+        // Change style of navbar on scroll
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        function myFunction() {
+            var navbar = document.getElementById("myNavbar");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+            } else {
+                navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
             }
+        }
 
-            // Change style of navbar on scroll
-            window.onscroll = function () {
-                myFunction()
-            };
-
-            function myFunction() {
-                var navbar = document.getElementById("myNavbar");
-                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                    navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-                } else {
-                    navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-                }
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function toggleFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
             }
-
-            // Used to toggle the menu on small screens when clicking on the menu button
-            function toggleFunction() {
-                var x = document.getElementById("navDemo");
-                if (x.className.indexOf("w3-show") == -1) {
-                    x.className += " w3-show";
-                } else {
-                    x.className = x.className.replace(" w3-show", "");
-                }
-            }
-        </script>
+        }
+    </script>
 
 </body>
 

@@ -1,5 +1,5 @@
 create_histogram_price("./plots/page_3/ramen_allprefecture.csv", "Price range of Ramen (JPY)", "div.price_ramen")
-create_histogram_price("./plots/page_3/sushi_allprefecture.csv", "Price range of Sushi (JPY))", "div.price_sushi")
+create_histogram_price("./plots/page_3/sushi_allprefecture.csv", "Price range of Sushi (JPY)", "div.price_sushi")
 
 function create_histogram_price(data_file, title, div) {
     d3.csv(data_file, function (data) {
@@ -28,19 +28,19 @@ function create_histogram_price(data_file, title, div) {
                         'price': mid_price
                     })
                 }
-                }
-                }
+            }
+        }
         console.log(priceData)
 
-        // draw bar chart
+        // draw histogram 
         const margin = {
             top: 30,
             bottom: 20,
             left: 50,
             right: 50
         }
-        var svgWidth = 350;
-        var svgHeight = 450;
+        var svgWidth = 365;
+        var svgHeight = 500;
 
         var svg = d3.select(div)
             .append('svg')
@@ -51,7 +51,7 @@ function create_histogram_price(data_file, title, div) {
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
-            .style("background", "lightsteelblue")
+            .style("background", "#FFFF00")
             .style("border", "solid")
             .style("border-width", "2px")
             .style("border-radius", "5px")
@@ -61,18 +61,18 @@ function create_histogram_price(data_file, title, div) {
 
         var chart = svg.append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-        
+
         var x = d3.scaleLinear()
             .rangeRound([0, svgWidth])
-            .domain([0, 10000]);
+            .domain([0, 8000]);
 
         var histogram = d3.histogram()
             .value(function (d) {
                 return d.price;
-            }) // I need to give the vector of value
-            .domain(x.domain())  // then the domain of the graphic
-            .thresholds(x.ticks(20)); // then the numbers of bins
-    
+            })
+            .domain(x.domain())
+            .thresholds(x.ticks(16)); //the numbers of bins
+
         var bins = histogram(priceData);
         console.log(bins)
 
@@ -81,12 +81,12 @@ function create_histogram_price(data_file, title, div) {
 
         y.domain([0, d3.max(bins, function (d) {
             return d.length;
-        })]); // d3.hist has to be called before the Y axis obviously
-    
+        })]);
+
         y_axis = d3.axisLeft().scale(y);
         x_axis = d3.axisBottom().scale(x);
 
-            // append the bar rectangles to the svg element
+        // append the bar rectangles to the svg element
         chart.append('g')
             .selectAll("rect")
             .data(bins)
@@ -96,47 +96,48 @@ function create_histogram_price(data_file, title, div) {
             .attr("transform", function (d) {
                 return "translate(" + x(d.x0) + "," + y(d.length) + ")";
             })
-                .attr("width", function (d) {
-                        if (x(d.x1) == x(d.x0)) {
+            .attr("width", function (d) {
+                if (x(d.x1) == x(d.x0)) {
                     return 0
                 }
                 return x(d.x1) - x(d.x0) - 1;
-                })
-                .attr("height", function (d) {
-                        return svgHeight - y(d.length);
+            })
+            .attr("height", function (d) {
+                return svgHeight - y(d.length);
+            })
+            .style("fill", "#80ced6")
+            .on("mouseover", function (d, i) {
+                d3.select(this).interrupt();
+                d3.select(this)
+                    .style("fill", "#e06377")
+                tooltip.style("opacity", 1)
+                tooltip
+                    .html("Count: " + d.length + "<br>" + "Price range: ¥" + d.x0 + " - ¥" + d.x1)
+                    .style('transform', `translate(${280}px, ${180}px)`)
+                    // .style('transform', `translate(${d3.mouse(this)[0]+500}px, ${d3.mouse(this)[1]+300}px)`)
+                    .style("opacity", 1)
+            })
+            .on("mouseout", function (d, i) {
+                d3.select(this).interrupt();
+                d3.select(this)
+                    .style("fill", function (d) {
+                        return "#80ced6"
                     })
-                    .style("fill", "#80ced6")
-                    .on("mouseover", function (d, i) {
-                        d3.select(this).interrupt();
-                        d3.select(this)
-                            .style("fill", "#e06377")
-                        tooltip.style("opacity", 1)
-                        tooltip
-                            .html("Count: " + d.length + "<br>" + "Price range: ¥" + d.x0 + " - ¥" + d.x1)
-                            // .style('transform', `translate(${d3.mouse(this)[0]+500}px, ${d3.mouse(this)[1]+300}px)`)
-                            .style("opacity", 1)
-                    })
-                    .on("mouseout", function (d, i) {
-                        d3.select(this).interrupt();
-                        d3.select(this)
-                            .style("fill", function (d) {
-                                return "#80ced6"
-                            })
-                        tooltip.style("opacity", 0)
-                    });
-        
+                tooltip.style("opacity", 0)
+            });
+
         chart.append("text")
             .attr("y", 0 - (margin.top / 2))
             .style("font-size", "16px")
             .style("text-decoration", "underline")
             .text(title);
-        
+
         chart.append('g')
             .call(y_axis);
-        
+
         chart.append('g')
             .attr('transform', 'translate(0,' + svgHeight + ')')
             .call(x_axis);
-    
+
     });
 }

@@ -7,13 +7,17 @@ function create_pie_prefecture(data_file, title) {
 
         // data processing
         console.log(data);
+
+        total = 24682060
         for (var i = 0; i < data.length; i++) {
             var value = parseInt(data[i].Reviews.replace(/,/g, ''))
 
             if (i < 5) {
+                percentage = value / total * 100
                 prefectureData.push({
                     "prefecture": data[i].Prefecture,
-                    "reviews": value
+                    "reviews": value,
+                    "percent": percentage.toFixed(2)
                 });
             }
         }
@@ -49,8 +53,8 @@ function create_pie_prefecture(data_file, title) {
             .style("border-width", "2px")
             .style("border-radius", "5px")
             .style("padding", "5px")
-            .style("width", "230px")
-            .style("height", "40px")
+            .style("width", "260px")
+            .style("height", "70px")
 
         var color = d3.scaleOrdinal()
             .domain(prefectureData)
@@ -83,7 +87,7 @@ function create_pie_prefecture(data_file, title) {
                     .style("fill", "#ff5500")
                 tooltip.style("opacity", 1)
                 tooltip
-                    .html("Num of Reviews: " + d.data.reviews)
+                    .html("Num of Reviews: " + d.data.reviews + "<br>" + "Percentage: " + d.data.percent + "%")
                     .style('transform', `translate(${d3.mouse(this)[0] + 450}px, ${d3.mouse(this)[1] + 280}px)`)
                     .style("opacity", 1)
             })

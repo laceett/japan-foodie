@@ -4,101 +4,101 @@
 
 
 d3.csv("./plots/page_1/num_of_restaurant.csv", function (data) {
-            d3.json("./plots/page_1/japan.json", function (error, jp) {
-        
-    const margin = {top: 50, bottom: 0, left: 0, right: 0}
-    var svgWidth = 800;
-    var svgHeight = 600;
-    var lon = -138.0;
-    var lat = 36;
-    
-    var projection = d3.geoAlbers()
-    .center([0, lat])
-    .rotate([lon, 0])
-    .parallels([23, 46])
-    .scale(1700).translate([svgWidth / 2, svgHeight / 2]);
+    d3.json("./plots/page_1/japan.json", function (error, jp) {
 
-    var path = d3.geoPath().projection(projection);
+        const margin = { top: 50, bottom: 0, left: 0, right: 0 }
+        var svgWidth = 800;
+        var svgHeight = 600;
+        var lon = -138.0;
+        var lat = 36;
 
-    var svg = d3.select('div.overview')
-        .append('svg')
-        .attr('width', svgWidth + margin.left + margin.right)
-        .attr('height', svgHeight + margin.top + margin.bottom)
+        var projection = d3.geoAlbers()
+            .center([0, lat])
+            .rotate([lon, 0])
+            .parallels([23, 46])
+            .scale(1700).translate([svgWidth / 2, svgHeight / 2]);
 
-    var prefectureMap = new Map();
+        var path = d3.geoPath().projection(projection);
 
-    console.log(data)
+        var svg = d3.select('div.overview')
+            .append('svg')
+            .attr('width', svgWidth + margin.left + margin.right)
+            .attr('height', svgHeight + margin.top + margin.bottom)
 
-    for(var i = 0; i < data.length; i++) {
-        var value = parseInt(data[i]['Stores'].replace(/,/g, ''))
-        prefectureMap[data[i]['Prefecture']] = value
-    }
+        var prefectureMap = new Map();
 
-    console.log(prefectureMap)
+        console.log(data)
 
-    var colorfn = d3.scaleSequential(d3.interpolatePuBu).domain([0, 130000])
+        for (var i = 0; i < data.length; i++) {
+            var value = parseInt(data[i]['Stores'].replace(/,/g, ''))
+            prefectureMap[data[i]['Prefecture']] = value
+        }
 
-    svg.append("g")
-      .attr("class", "legendLinear")
-      .attr('font-size', '8px')
-      .attr('transform', 'translate(20,0)')
-    
-    var legendLinear = d3.legendColor()
-      .shapeWidth(50)
-      .cells([0, 32500, 65000, 97500, 130000])
-      .orient('horizontal')
-      .scale(colorfn);
-    
-    svg.select(".legendLinear")
-      .call(legendLinear);
+        console.log(prefectureMap)
 
-      var Tooltip = d3.select("div.tooltip_choropleth")
-        .append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0)
-        .style("background", "lightsteelblue")
-        .style("border", "solid")
-        .style("border-width", "2px")
-        .style("border-radius", "5px")
-        .style("padding", "5px")
-        .style("width", "200px")
-        .style("height", "70px")
+        var colorfn = d3.scaleSequential(d3.interpolateYlGnBu).domain([0, 130000])
 
-    svg.append("g")
-        .selectAll("path")
-        .data(topojson.feature(jp, jp.objects.japan).features)
-        .enter()
-        .append("path")
-        .style("fill", function(d) {
-            return colorfn(prefectureMap[d.properties.NAME_1])
-        })
-        .attr("d", path)
-        .on("mouseover", function(d,i) {
+        svg.append("g")
+            .attr("class", "legendLinear")
+            .attr('font-size', '10px')
+            .attr('transform', 'translate(20,0)')
+
+        var legendLinear = d3.legendColor()
+            .shapeWidth(50)
+            .cells([0, 32500, 65000, 97500, 130000])
+            .orient('horizontal')
+            .scale(colorfn);
+
+        svg.select(".legendLinear")
+            .call(legendLinear);
+
+        var Tooltip = d3.select("div.tooltip_choropleth")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0)
+            .style("background", "#FFFF00")
+            .style("border", "solid")
+            .style("border-width", "2px")
+            .style("border-radius", "5px")
+            .style("padding", "5px")
+            .style("width", "200px")
+            .style("height", "70px")
+
+        svg.append("g")
+            .selectAll("path")
+            .data(topojson.feature(jp, jp.objects.japan).features)
+            .enter()
+            .append("path")
+            .style("fill", function (d) {
+                return colorfn(prefectureMap[d.properties.NAME_1])
+            })
+            .attr("d", path)
+            .on("mouseover", function (d, i) {
                 d3.select(this).interrupt();
                 d3.select(this)
-                .style("fill", "#ff5500")
+                    .style("fill", "#ff5500")
                 Tooltip.style("opacity", 1)
                 Tooltip
-                    .html("Prefecture: " + d.properties.NAME_1 + "<br>" + "Store Count: " + prefectureMap[d.properties.NAME_1])
-                    .style('transform', `translate(${d3.mouse(this)[0]+10}px, ${d3.mouse(this)[1]+200}px)`)
+                    .html("Prefecture: " + d.properties.NAME_1 + "<br>" + "Restaurants: " + prefectureMap[d.properties.NAME_1])
+                    .style('transform', `translate(${d3.mouse(this)[0] + 180}px, ${d3.mouse(this)[1] + 120}px)`)
                     .style("opacity", 1)
 
 
             })
-        .on("mouseout", function(d,i) {
-            d3.select(this).interrupt();
-            d3.select(this)
-            .style("fill", function(d) {
-                return colorfn(prefectureMap[d.properties.NAME_1])
-            })
-            Tooltip.style("opacity", 0)
-        });
+            .on("mouseout", function (d, i) {
+                d3.select(this).interrupt();
+                d3.select(this)
+                    .style("fill", function (d) {
+                        return colorfn(prefectureMap[d.properties.NAME_1])
+                    })
+                Tooltip.style("opacity", 0)
+            });
 
-    svg.append("path")
-        .datum(topojson.mesh(jp, jp.objects.japan, (a, b) => a !== b))
-        .attr("fill", "none")
-        .attr("stroke", "white")
-        .attr("stroke-linejoin", "round")
-        .attr("d", path);
+        svg.append("path")
+            .datum(topojson.mesh(jp, jp.objects.japan, (a, b) => a !== b))
+            .attr("fill", "none")
+            .attr("stroke", "white")
+            .attr("stroke-linejoin", "round")
+            .attr("d", path);
     });
 });

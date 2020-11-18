@@ -19,6 +19,7 @@ class RestaurantItem(scrapy.Item):
     area_id = scrapy.Field()
     address = scrapy.Field()
     name = scrapy.Field()
+    name_en = scrapy.Field()
     avg_rating = scrapy.Field()
 
 class ReviewItem(scrapy.Item):
@@ -26,3 +27,4 @@ class ReviewItem(scrapy.Item):
     user_id = scrapy.Field()
     rating = scrapy.Field()
     review = scrapy.Field()
+    review_en = scrapy.Field()

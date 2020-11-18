@@ -1,5 +1,7 @@
-create_pie_catagory("./plots/page_5/top_sushi_ramen_tokyo.csv", "div.ranking", "div.tooltip_ranking", [3.8, 4.9])
-create_pie_catagory("./plots/page_5/top_sushi_ramen_kyoto.csv", "div.ranking_kyoto", "div.tooltip_ranking_kyoto", [3.6, 4.3])
+create_pie_catagory("./plots/page_5/top_sushi_ramen_tokyo.csv", "div.ranking",
+    "div.tooltip_ranking", [3.8, 4.9])
+create_pie_catagory("./plots/page_5/top_sushi_ramen_kyoto.csv", "div.ranking_kyoto",
+    "div.tooltip_ranking_kyoto", [3.6, 4.3])
 
 function create_pie_catagory(data_file, div, tooltipdiv, range) {
     d3.csv(data_file, function (data) {
@@ -44,6 +46,18 @@ function create_pie_catagory(data_file, div, tooltipdiv, range) {
             // .attr("transform", `translate(${margin.left},0)`)
             .call(y_axis);
 
+        if (div == "div.ranking") {
+            svg.append("circle").attr("cx", 500).attr("cy", 620).attr("r", 6).style("fill", "#B0C4DE")
+            svg.append("circle").attr("cx", 500).attr("cy", 650).attr("r", 6).style("fill", "#f7cac9")
+            svg.append("text").attr("x", 520).attr("y", 620).text("Tokyo_ramen").style("font-size", "15px").attr("alignment-baseline", "middle")
+            svg.append("text").attr("x", 520).attr("y", 650).text("Tokyo_sushi").style("font-size", "15px").attr("alignment-baseline", "middle")
+        } 
+        if (div == "div.ranking_kyoto") {
+            svg.append("circle").attr("cx", 500).attr("cy", 620).attr("r", 6).style("fill", "#D8BFD8")
+            svg.append("circle").attr("cx", 500).attr("cy", 650).attr("r", 6).style("fill", "#b1cbbb")
+            svg.append("text").attr("x", 520).attr("y", 620).text("Kyoto_ramen").style("font-size", "15px").attr("alignment-baseline", "middle")
+            svg.append("text").attr("x", 520).attr("y", 650).text("Kyoto_sushi").style("font-size", "15px").attr("alignment-baseline", "middle")
+        }
 
         // var colorFn = d3.scaleSequential()
         // .interpolator(d3.interpolateViridis)
@@ -96,7 +110,7 @@ function create_pie_catagory(data_file, div, tooltipdiv, range) {
                         + "Prefecture: " + d.prefecture + "<br>"
                         + "Category: " + d.category + "<br>"
                         + "Price: " + d.price_range)
-                    .style('transform', `translate(${d3.mouse(this)[0] + 700}px, ${d3.mouse(this)[1] + 150}px)`)
+                    .style('transform', `translate(${d3.mouse(this)[0] + 200}px, ${d3.mouse(this)[1] + 150}px)`)
                     .style("opacity", 1)
             })
             .on("mouseout", function (d, i) {

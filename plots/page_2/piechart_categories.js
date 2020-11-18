@@ -4,12 +4,31 @@ function create_pie_catagory(data_file, title) {
     d3.csv(data_file, function (data) {
         let categoryData = []
         var otherCount = 0;
+        var total = 0;
+
+        for (var i = 0; i < data.length; i++) {
+            if (i < 8) {
+                total += parseInt(data[i].RestaurantCount)
+            }
+            else {
+                break
+            }
+        }
 
         // data processing
         console.log(data);
+        console.log(total);
+
         for (var i = 0; i < data.length; i++) {
             if (i < 8) {
-                categoryData.push(data[i])
+                // categoryData.push(data[i])
+                percentage = data[i].RestaurantCount / total * 100
+
+                categoryData.push({
+                        Category: data[i].Category,
+                        RestaurantCount: data[i].RestaurantCount,
+                        Percent: percentage.toFixed(2)
+                    })
             }
             else {
                 otherCount += parseFloat(data[i].RestaurantCount)
@@ -47,8 +66,7 @@ function create_pie_catagory(data_file, title) {
             .style("border-radius", "5px")
             .style("padding", "5px")
             .style("width", "230px")
-            .style("height", "40px")
-
+            .style("height", "70px")
 
         var color = d3.scaleOrdinal()
             .domain(categoryData)
@@ -81,7 +99,8 @@ function create_pie_catagory(data_file, title) {
                     .style("fill", "#ff5500")
                 tooltip.style("opacity", 1)
                 tooltip
-                    .html("Num of Restaurants: " + d.data.RestaurantCount)
+                    .html("Num of Restaurants: " + d.data.RestaurantCount
+                        + "<br>" + "Percentage: " + d.data.Percent + "%")
                     .style('transform', `translate(${d3.mouse(this)[0] + 250}px, ${d3.mouse(this)[1] + 200}px)`)
                     .style("opacity", 1)
             })

@@ -2,7 +2,7 @@ import scrapy
 from scrapy.linkextractors import LinkExtractor
 from scrapy.http.request import Request
 from scrapy.spiders import CrawlSpider, Rule
-# from googletrans import Translator
+from googletrans import Translator
 
 from tabelog.items import RestaurantItem, ReviewItem
 
@@ -42,6 +42,9 @@ class RamenSpider(CrawlSpider):
         name = response.xpath("//h2[contains(@class, 'display-name')]/a/text()").get().strip()
         restaurant['name'] = name
 
+        name_en = self._translate(name)
+        restaurant['name_en'] = name_en
+
         restaurant['avg_rating'] = response.xpath("//span[contains(@class, 'rdheader-rating__score-val-dtl')]/text()").get().strip()
 
         # review_links = LinkExtractor(allow=[r"tokyo/A.*/.*/.*/dtlrvwlst/B.*"], deny=[r"rstLst/.*",r"ramen/.*",r"dtlrvwlst/\?"]).extract_links(response)
@@ -67,3 +70,19 @@ class RamenSpider(CrawlSpider):
         # In [27]: "".join(response.xpath("//div[contains(@class, 'rvw-item__rvw-comment')]//p//text()").getall()).strip()
         review_jp = "".join(response.xpath("//div[contains(@class, 'rvw-item__rvw-comment')]//p//text()").getall()).strip()
         review['review'] = review_jp
+
+        review_en = self._translate(review_jp)
+        review['review_en'] = review_en
+
+        return review
+
+    def _translate(self, s):
+        translator = Translator()
+        s_translated = ""
+
+        try:
+            s_translated = translator.translate(s, src='ja', dest='en').text
+        except ValueError as err:
+            self.logger.info("Translation error: " + str(err))
+
+        return s_translated

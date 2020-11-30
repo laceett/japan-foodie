@@ -1,7 +1,7 @@
-create_histogram_price("./plots/page_3/ramen_allprefecture.csv", "Price range of Ramen (JPY)", "div.price_ramen")
-create_histogram_price("./plots/page_3/sushi_allprefecture.csv", "Price range of Sushi (JPY)", "div.price_sushi")
+create_histogram_price("./plots/page_3/ramen_allprefecture.csv", "Price range of Ramen (JPY)", "div.price_ramen", [0, 10000])
+create_histogram_price("./plots/page_3/sushi_allprefecture.csv", "Price range of Sushi (JPY)", "div.price_sushi", [0, 10000])
 
-function create_histogram_price(data_file, title, div) {
+function create_histogram_price(data_file, title, div, range) {
     d3.csv(data_file, function (data) {
         let priceData = []
 
@@ -35,36 +35,24 @@ function create_histogram_price(data_file, title, div) {
         // draw histogram 
         const margin = {
             top: 30,
-            bottom: 20,
-            left: 50,
-            right: 50
+            bottom: 50,
+            left: 75,
+            right: 25
         }
         var svgWidth = 365;
-        var svgHeight = 500;
+        var svgHeight = 350;
 
         var svg = d3.select(div)
             .append('svg')
             .attr('width', svgWidth + margin.left + margin.right)
             .attr('height', svgHeight + margin.top + margin.bottom);
 
-        var tooltip = d3.select("div.tooltip_price")
-            .append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0)
-            .style("background", "#FFFF00")
-            .style("border", "solid")
-            .style("border-width", "2px")
-            .style("border-radius", "5px")
-            .style("padding", "5px")
-            .style("width", "200px")
-            .style("height", "70px")
-
         var chart = svg.append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
         var x = d3.scaleLinear()
             .rangeRound([0, svgWidth])
-            .domain([0, 8000]);
+            .domain(range);
 
         var histogram = d3.histogram()
             .value(function (d) {
@@ -77,11 +65,11 @@ function create_histogram_price(data_file, title, div) {
         console.log(bins)
 
         var y = d3.scaleLinear()
-            .range([svgHeight, 0]);
-
-        y.domain([0, d3.max(bins, function (d) {
-            return d.length;
-        })]);
+            .range([svgHeight, 0])
+            .domain([0, 23000])
+        //     .domain([0, d3.max(bins, function (d) {
+        //     return d.length;
+        // })]);
 
         y_axis = d3.axisLeft().scale(y);
         x_axis = d3.axisBottom().scale(x);
@@ -110,11 +98,12 @@ function create_histogram_price(data_file, title, div) {
                 d3.select(this).interrupt();
                 d3.select(this)
                     .style("fill", "#e06377")
-                tooltip.style("opacity", 1)
-                tooltip
+                    // tooltip_global.style("opacity", 1)
+                tooltip_global
                     .html("Count: " + d.length + "<br>" + "Price range: ¥" + d.x0 + " - ¥" + d.x1)
-                    .style('transform', `translate(${280}px, ${180}px)`)
-                    // .style('transform', `translate(${d3.mouse(this)[0]+500}px, ${d3.mouse(this)[1]+300}px)`)
+                    .style('left', d3.event.pageX + 50 + 'px')
+                    .style('top', d3.event.pageY + 'px')
+                    .style("height", "70px")
                     .style("opacity", 1)
             })
             .on("mouseout", function (d, i) {
@@ -123,7 +112,7 @@ function create_histogram_price(data_file, title, div) {
                     .style("fill", function (d) {
                         return "#80ced6"
                     })
-                tooltip.style("opacity", 0)
+                tooltip_global.style("opacity", 0)
             });
 
         chart.append("text")
@@ -134,10 +123,28 @@ function create_histogram_price(data_file, title, div) {
 
         chart.append('g')
             .call(y_axis);
+        
+        chart.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", 0 - svgHeight/2)
+            .attr("y", 0 - margin.left)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("Count");      
 
         chart.append('g')
             .attr('transform', 'translate(0,' + svgHeight + ')')
             .call(x_axis);
+        
+        chart.append("text")             
+            .attr("transform",
+                    "translate(" + (svgWidth/2) + " ," + 
+                                    (svgHeight + margin.bottom) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("Price (Yen)");
+      
 
     });
 }

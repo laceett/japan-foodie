@@ -93,8 +93,8 @@ function create_pie_catagory(data_file, title) {
 
         const margin = {
             top: 50,
-            bottom: 50,
-            left: 50,
+            bottom: 150,
+            left: 75,
             right: 20,
         }
         var svgWidth = 850;
@@ -103,7 +103,9 @@ function create_pie_catagory(data_file, title) {
         var svg = d3.select('div.hours')
             .append('svg')
             .attr('width', svgWidth + margin.left + margin.right)
-            .attr('height', svgHeight + margin.top + margin.bottom);
+            .attr('height', svgHeight + margin.top + margin.bottom)
+            .attr('id', 'heatmap')
+            .style("font-size", 11)
 
         var chart = svg.append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
@@ -118,6 +120,34 @@ function create_pie_catagory(data_file, title) {
             .domain(categories)
             .padding(0.04)
 
+        const annotations = [
+            {
+                note: {
+                title: "Izakaya",
+                label: "Casual Japanese bar/restaurant which is open at all times"
+                },
+                connector: {
+                end: "dot",        // Can be none, or arrow or dot
+                type: "line",      // ?? don't know what it does
+                lineType : "vertical",    // ?? don't know what it does
+                endScale: 8     // dot size
+                },
+                color: ["grey"],
+                x: 40,
+                y: 440,
+                dy: 70,
+                dx: 70
+            }
+            ]
+            
+            // Add annotation to the chart
+            const makeAnnotations = d3.annotation()
+                .annotations(annotations)
+        
+            d3.select("#heatmap")
+                .append("g")
+                .call(makeAnnotations)
+              
         y_axis = d3.axisLeft().scale(y);
         x_axis = d3.axisBottom().scale(x);
 
@@ -129,7 +159,7 @@ function create_pie_catagory(data_file, title) {
             .call(x_axis);
 
         var colorFn = d3.scaleSequential(d3.interpolateYlGnBu)
-            .domain([1, 22500])
+            .domain([500, 22500])
 
         svg.append("g")
             .attr("class", "legendLinear")
@@ -144,18 +174,6 @@ function create_pie_catagory(data_file, title) {
 
         svg.select(".legendLinear")
             .call(legendLinear);
-
-        var tooltip = d3.select("div.tooltip_hours")
-            .append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0)
-            .style("background", "#FFFF00")
-            .style("border", "solid")
-            .style("border-width", "1px")
-            .style("border-radius", "3px")
-            .style("padding", "4px")
-            .style("width", "200px")
-            .style("height", "40px")
 
         chart.selectAll('rect')
             .data(hoursData, function (d) {
@@ -180,9 +198,12 @@ function create_pie_catagory(data_file, title) {
                 d3.select(this)
                     .style("fill", "#ff5500")
                 // console.log(d)
-                tooltip
+                tooltip_global
                     .html("Restaurants Open: " + d.value)
-                    .style('transform', `translate(${d3.mouse(this)[0] + 100}px, ${d3.mouse(this)[1] + 100}px)`)
+                    // .style('transform', `translate(${d3.mouse(this)[0] + 100}px, ${d3.mouse(this)[1] + 100}px)`)
+                    .style("height", "40px")
+                    .style('left', d3.event.pageX + 50 + 'px')
+                    .style('top', d3.event.pageY + 'px')
                     .style("opacity", 1)
             })
             .on("mouseout", function (d, i) {
@@ -191,8 +212,28 @@ function create_pie_catagory(data_file, title) {
                     .style("fill", function (d) {
                         return colorFn(d.value)
                     })
-                tooltip.style("opacity", 0)
+                    tooltip_global
+                    .style("opacity", 0)
+
             });
+        
+        chart.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", 0 - svgHeight/2)
+            .attr("y", 0 - margin.left)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("Restaurant Category");      
+        
+        chart.append("text")             
+            .attr("transform",
+                    "translate(" + (svgWidth/2) + " ," + 
+                                    (svgHeight + margin.bottom - 100) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "11px")
+            .text("Time (Hours)");
+
     });
     });
     });

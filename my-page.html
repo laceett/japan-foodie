@@ -7,6 +7,7 @@
 <script src="https://d3js.org/topojson.v1.min.js"></script>
 <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -130,10 +131,10 @@
             </a>
             <a href="#home" class="w3-bar-item w3-button">HOME</a>
             <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-            <a href="#map" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-map-marker"></i> MAP</a>
+            <!-- <a href="#map" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-map-marker"></i> MAP</a> -->
             <a href="#overview" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-pie-chart"></i> OVERVIEW</a>
             <a href="#analysis" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-bar-chart"></i> ANALYSIS</a>
-            <a href="#time" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-calendar"></i> TIME</a>
+            <a href="#time" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-calendar"></i> AVAILABILITY</a>
             <a href="#ranking" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-thumbs-up"></i> RANKING</a>
             <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
@@ -143,7 +144,7 @@
         <!-- Navbar on small screens -->
         <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
             <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-            <a href="#map" class="w3-bar-item w3-button" onclick="toggleFunction()">MAP</a>
+            <!-- <a href="#map" class="w3-bar-item w3-button" onclick="toggleFunction()">MAP</a> -->
             <a href="#overview" class="w3-bar-item w3-button" onclick="toggleFunction()">OVERVIEW</a>
             <a href="#analysis" class="w3-bar-item w3-button" onclick="toggleFunction()">ANALYSIS</a>
             <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
@@ -220,14 +221,14 @@
     </div>
 
     <!-- Second Parallax Image with MAP Text -->
-    <div class="bgimg-2 w3-display-container w3-opacity-min">
+    <!-- <div class="bgimg-2 w3-display-container w3-opacity-min">
         <div class="w3-display-middle">
             <span class="w3-xxlarge w3-text-white w3-wide">MAP</span>
         </div>
-    </div>
+    </div> -->
 
     <!-- Container (Map Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="map">
+    <!-- <div class="w3-content w3-container w3-padding-64" id="map">
         <h3 class="w3-center">Restaurants in Japan</h3>
         <p class="w3-center"><em>Below is a choropleth map of an overview of the number of restaurants in different
                 prefectures of Japan.</em></p>
@@ -264,7 +265,18 @@
                 <script src="./plots/page_1/choropleth_japan.js"></script>
             </div>
         </div>
-    </div>
+
+        <div class="piecharts w3-row-padding w3-center">
+            <div class="categories_donut right_chart">
+                <script src="./plots/page_1/piechart_donut_categories.js"></script>
+                <div class="tooltip_piecharts_categories_donut"></div>
+            </div>
+            <div class="prefectures_donut left_chart">
+                <script src="./plots/page_1/piechart_donut_prefecture.js"></script>
+                <div class="tooltip_piecharts_donut"></div>
+            </div>
+        </div>
+    </div> -->
 
     <!-- Third Parallax Image with Overview Text -->
     <div class="bgimg-3 w3-display-container w3-opacity-min">
@@ -276,11 +288,70 @@
     <!-- Container (Overview Section) -->
     <div class="w3-content w3-container w3-padding-64" id="overview">
         <h3 class="w3-center">Restaurant Overview</h3>
-        <p class="w3-center"><em>Below are two pie charts - one displays the top prefectures that have the most reviews,
+        <p class="w3-center"><em>Below is a choropleth map of an overview of the number of restaurants in different
+            prefectures of Japan.</em></p>
+    <p>Here we explore <b>Tokyo</b> is the best foodie areas among all the prefectures, it has plenty of areas where
+        superb
+        restaurants. Sushi, ramen, tempura, yakiniku, wagyu... the list of famous dishes that represent Japan goes
+        on and
+        on, but there are plenty of lesser-known regional specialties from all around Japan.</p>
+
+    <p>For example, <b>Hokkaido</b> - by far Japan’s largest prefecture, its food, nature, and history in Hokkaido
+        offers
+        something very different than what most may think of when they visualize Japan. Not only snowboarding and
+        skiing in Hokkaido is on every serious powder chasers radar, but Hokkaido is also
+        known for its fresh seafood, dairy
+        products,
+        the most popular types of ramen, Yubari King Melon - the best Melon I've ever eaten! &#x1F60B;<br>
+        Check out the link below to see what Hokkaido offers you:<br>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+            href="https://jw-webmagazine.com/hokkaido-bucket-list-2019-20-best-things-to-do-in-hokkaido-9a28ed3c7183/">20
+            TOP THINGS TO DO IN HOKKAIDO</a><br>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
+            href="https://www.hisgo.com/us/destination-japan/blog/hokkaido_food_guide.html">HOKKAIDO FOOD
+            GUIDE</a><br>
+        <i class="fa fa-external-link fa-fw w3-margin-right"></i><a href="http://www.skiing-hokkaido.com/">POWDER
+            SNOW
+            HOKKAIDO</a>
+    </p>
+
+    <div class="w3-row-padding w3-center">
+        <div class="tooltip_choropleth"></div>
+        <div class="overview">
+            <h5>Choropleth Map of Restaurants in Japan</h5>
+            <p>Hover over to check the number of restaurants in different prefectures.</p>
+            <script src="./plots/page_1/choropleth_japan.js"></script>
+        </div>
+    </div>
+
+    <div class="piecharts w3-row-padding w3-center">
+        <div class="categories_donut right_chart">
+            <script src="./plots/page_1/piechart_donut_categories.js"></script>
+            <div class="tooltip_piecharts_categories_donut"></div>
+        </div>
+        <div class="prefectures_donut left_chart">
+            <script src="./plots/page_1/piechart_donut_prefecture.js"></script>
+            <div class="tooltip_piecharts_donut"></div>
+        </div>
+    </div>
+
+        <p class="w3-center"><em>Above are two pie charts - one displays the top prefectures that have the most reviews,
                 and the other one displays the top food categories that have the most restaurants in the same
                 section.</em></p>
-
-        <p>From the Pie Chart on the left, we can see that <b>Izakaya</b> is the category with the most restaurant in
+        
+                <p>From the Pie Chart on the left, we can see that <b>Tokyo</b> is the prefecture that has the most number of
+                    reviews. When it
+                    comes to global culinary centers of excellence, one city stands head and shoulders above the rest: Tokyo.
+                    (CNN, 2017)<br>
+                    "People are very passionate about their craft," he says. "You see one guy and he only does one thing. Every
+                    day. That for me is perfection -- and that's why Michelin comes here and drops lots of stars." says Virgilio
+                    Martinez - who owns the world's fourth-best restaurant -- Central, in Lima.<br>
+                    "Many chefs, foodies and people in our industry say Tokyo is the world's best food city, but this doesn't
+                    mean only Michelin restaurants," says Chef Hidetoki Sato - who works at one of Tokyo's most renowned
+                    three-star restaurants, Ryugin. "It means all categories of food, from street food, fast food, takeaway to
+                    fine dining. It truly is a food paradise."</p>
+        
+        <p>From the Pie Chart on the right, we can see that <b>Izakaya</b> is the category with the most restaurant in
             Japan.
             Izakaya is one of Japan’s quintessential experiences. Izakaya (居酒屋) is composed of three kanjis:
             “be/stay”(居), “alcohol”(酒) and “shop” (屋). If there is a favorite place for the Japanese, those are
@@ -294,20 +365,9 @@
             href="https://tokyocheapo.com/food-and-drink/drinking/beginners-guide-japanese-izakaya/">A BEGINNER'S
             GUIDE TO THE JAPANESE IZAKAYA</a><br>
         <i class="fa fa-external-link fa-fw w3-margin-right"></i><a href="https://favy-jp.com/topics/1097">5 MOST
-            POLULAR IZAKAYAS IN JAPAN</a><br>
+            POLULAR IZAKAYAS IN JAPAN</a><br><br><br>
 
-        <p>From the Pie Chart on the right, we can see that <b>Tokyo</b> is the prefecture that has the most number of
-            reviews. When it
-            comes to global culinary centers of excellence, one city stands head and shoulders above the rest: Tokyo.
-            (CNN, 2017)<br>
-            "People are very passionate about their craft," he says. "You see one guy and he only does one thing. Every
-            day. That for me is perfection -- and that's why Michelin comes here and drops lots of stars." says Virgilio
-            Martinez - who owns the world's fourth-best restaurant -- Central, in Lima.<br>
-            "Many chefs, foodies and people in our industry say Tokyo is the world's best food city, but this doesn't
-            mean only Michelin restaurants," says Chef Hidetoki Sato - who works at one of Tokyo's most renowned
-            three-star restaurants, Ryugin. "It means all categories of food, from street food, fast food, takeaway to
-            fine dining. It truly is a food paradise."</p>
-
+<!-- 
         <div class="piecharts w3-row-padding w3-center">
             <div class="tooltip_piecharts"></div>
             <h5>Pie Charts of the Top Categories & Top Prefectures</h5>
@@ -317,7 +377,7 @@
             <div class="prefectures right_chart">
                 <script src="./plots/page_2/piechart_categories.js"></script>
             </div>
-        </div>
+        </div> -->
 
         <div class="w3-row-padding w3-center">
             <h5>Best restaurants in Tokyo you have to try</h5>
@@ -414,7 +474,6 @@
             per Sushi meal in Japan.</p>
         <div class="w3-row-padding w3-center w3-section">
             <script src="./plots/page_3/histogram_price.js"></script>
-            <div class="tooltip_price"></div>
             <div class="price_ramen left_chart"></div>
             <div class="price_sushi right_chart"></div>
         </div><br><br><br>
@@ -427,7 +486,6 @@
             There’s still some Sushi restaurants have really high rating above 3.8.</p>
         <div class="w3-row-padding w3-center w3-section">
             <script src="./plots/page_3/histogram_rating.js"></script>
-            <div class="tooltip_rating"></div>
             <div class="rating_ramen left_chart"></div>
             <div class="rating_sushi right_chart"></div>
         </div><br><br><br>
@@ -438,11 +496,10 @@
         <p>From the pair of two scatter plots below, we can explore that the relationship between price and rating of
             <b>Sushi</b> is normally distributed - no matter expensive or not, you can get good Sushi. However, there
             are
-            fewer <b>Ramen</b> restaurants with good ratings when the price is over 6000JPY. </p>
+            fewer <b>Ramen</b> restaurants with good ratings when the price is over 6000JPY, and more Ramen restaurants have ratings lower than 3.5 than Sushi restaurants in price range 1000JPY. </p>
         <br><br><br>
         <div class="w3-row-padding w3-center w3-section">
             <script src="./plots/page_3/scatter_correlation.js"></script>
-            <div class="tooltip_correlation"></div>
             <div class="correlation_ramen left_chart"></div>
             <div class="correlation_sushi right_chart"></div>
         </div>
@@ -452,7 +509,7 @@
     <!-- Fifth Parallax Image with Contact Text -->
     <div class="bgimg-5 w3-display-container w3-opacity-min">
         <div class="w3-display-middle">
-            <span class="w3-xxlarge w3-text-white w3-wide">TIME</span>
+            <span class="w3-xxlarge w3-text-white w3-wide">AVAILABILITY </span>
         </div>
     </div>
 
@@ -468,9 +525,8 @@
             AT AN IZAKAYA IN JAPAN</a><br> -->
         <div class="w3-row-padding w3-center w3-section">
             <h5>A Heatmap of the restaurant’s availability by time and category</h5>
-            <script src="./plots/page_4/heatmap.js"></script>
-            <div class="tooltip_hours"></div>
             <div class="hours"></div>
+            <script src="./plots/page_4/heatmap.js"></script>
         </div>
     </div>
     </div>
@@ -490,17 +546,24 @@
         <i class="fa fa-external-link fa-fw w3-margin-right"></i><a
             href="hhttps://boutiquejapan.com/izakayas-in-japan/">EATING AND DRIKING
             AT AN IZAKAYA IN JAPAN</a><br> -->
-        <script src="./plots/page_5/barchart_ranking.js"></script>
         <div class="w3-row-padding w3-center w3-section">
-            <h5>Top Ramen and Sushi restaurants in Tokyo</h5>
+            <h5>Top Ramen and Sushi restaurants</h5>
+            <form>
+                <label><input type="radio" name="dataset" id="dataset1" value="option1" checked> Sushi</label>
+                <label><input type="radio" name="dataset" id="dataset2" value="option2">Ramen</label>
+                <label><input type="radio" name="dataset" id="dataset3" value="option3">Izakaya</label>
+                <label><input type="radio" name="dataset" id="dataset4" value="option4">BBQ</label>
+
+            </form>                    
             <div class="tooltip_ranking"></div>
             <div class="ranking"></div>
+            <script src="./plots/page_5/barchart_ranking.js"></script>
         </div>
-        <div class="w3-row-padding w3-center w3-section">
+        <!-- <div class="w3-row-padding w3-center w3-section">
             <h5>Top Ramen and Sushi restaurants in Kyoto</h5>
             <div class="tooltip_ranking_kyoto"></div>
             <div class="ranking_kyoto"></div>
-        </div>
+        </div> -->
     </div>
     </div>
 

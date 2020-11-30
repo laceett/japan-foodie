@@ -117,11 +117,11 @@ function create_scatterplot(data_file, title, div, range) {
                     .style("fill", "#e06377")
                 // tooltip_global.style("opacity", 1)
                 tooltip_global
-                    .html("Rating: " + d.rating + " Price: " + d.price + "<br>" + "Count: " + countMap[d.rating][d.price])
+                    .html("Rating: " + d.rating + "<br>" + " Price: " + d.price + "<br>" + "Count: " + countMap[d.rating][d.price])
                     // .style('transform', `translate(${d3.mouse(this)[0] + 150}px, ${d3.mouse(this)[1] - 700}px)`)
                     .style('left', d3.event.pageX + 50 + 'px')
                     .style('top', d3.event.pageY + 'px')
-                    .style("height", "70px")
+                    .style("height", "90px")
                     .style("opacity", 1)
             })
             .on("mouseout", function (d, i) {

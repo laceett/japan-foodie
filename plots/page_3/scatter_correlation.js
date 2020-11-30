@@ -23,7 +23,7 @@ function create_scatterplot(data_file, title, div, range) {
                     mid_price = (mid_price_dinner + mid_price_lunch) / 2
                 }
 
-                if (mid_price != 0) {
+                if (mid_price != 0 && mid_price < range[1]) {
                     var rating = data[i].rating
                     var price = mid_price
 

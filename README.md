@@ -1,22 +1,15 @@
-# Welcome to Exploring Japan’s Restaurants ⚡️ [[GitHub Pages](https://laceett.github.io/japan-foodie/my-page.html)]
-
-### Lacee Xu
-
-# Description
-
-My friends will always ask me about food and restaurant recommendations for Japan since I lived in Tokyo for a couple of years and always loved the food and restaurant culture in Japan. 
-
-It could be difficult to find a good restaurant in Japan as a visitor because most reviews and articles are written in Japanese. With this project, I’d like to provide useful information about where to find the best food in Japan through data visualization.
+# Welcome to Exploring Japan’s Restaurants ⚡️ 
 
 
-# Overview
+## Overview
 
-The goal of this project is to provide useful information about restaurants in Japan, in order to help users have more sense of where to find the best food in Japan through data visualization. To be more specific, the project includes main objectives such as a restaurant overview, analysis of different restaurant categories and availability, and how the ranking of the restaurant in different categories. 
+Japanese food was always one of my favorite aspects of Japan while I was living there. My friends will always ask me about food and restaurant recommendations for Japan. It could be difficult to find a good restaurant in Japan as a visitor because most reviews and articles are written in Japanese.
 
-The project is implemented by using Python for data crawling, and D3 for data visualization. In the end, it will be hosted on GitHub Pages.
+With this project, I’d like to provide useful information about Japanese food culture and where to find the best food in Japan through data visualization. The project is implemented by using python for data crawling, D3 for data visualization, and it is hosted on GitHub Pages.
 
 
-### A project provides useful information about where to find the best food in Japan through data visualization!
+
+#### A project provides useful information about where to find the best food in Japan through data visualization!
 
 
 <p align="center">
@@ -33,88 +26,41 @@ The project is implemented by using Python for data crawling, and D3 for data vi
 ## Table of Contents
 
 - [Features](#features)
-- [Getting Started](#getting-started)
-- [Linking portfolio to Github](#linking-portfolio-to-github)
-- [Technologies Used](#technologies-used)
+- [Link](#link)
+- [Rebuild Instructions](#rebuild-instructions)
 - [For the Future](#for-the-future)
-- [Contributors](#project-maintainers)
+- [Project Maintainers](#project-maintainers)
 
 
 ## Features
 
-By the alpha release, I used the Scrapy framework to write a data crawler in Python for fetching the data from https://tabelog.com/ - the largest and most comprehensive restaurant review website in Japan.
-
-In addition, these features have been completed:
-
-✔️ A Restaurant overview of Japan such as key statistics in every major area and city.
-
-  Page 1: A choropleth map of an overview of the number of restaurants in different prefectures in the whole of Japan. 
-  
-  Page 2: Two pie charts, one displays the top prefectures that have the most reviews, and the other one displays the top food categories that have the most restaurants in the same section. 
-  
-✔️ Analysis of different restaurant categories. 
-
-  Page 3: Three pairs of graphs to show the analysis of some popular food categories.
-  
-  The first pair is two histograms of the price range of the sushi and the ramen. 
-  
-  The second pair is two histograms of the rating distribution of the sushi and the ramen. The last pair, two scatter plots shows the relationship between the price and the rating of the sushi and the ramen. 
-  
-  
-### Alpha Release Report: [[Click here](https://docs.google.com/document/d/1b9KXwAp1yWKy6YPMGSo84euA8gnh_jF0_ALj3-ObGEk/edit?usp=sharing)]
++ A Restaurant overview of Japan such as key statistics in every major area and city
++ Analysis of different restaurant categories
++ Analysis of the restaurant’s availability
++ The ranking of the restaurant in different categories
 
 
+## Link
 
-## Upcoming milestones
-
-✔️ Show the restaurant’s availability by time and category.
-  Using heatmap.
-  
-✔️ Ranking of the top 10 sushi restaurants in Tokyo.
-  Using bar charts.
++ [[GitHub Pages](https://laceett.github.io/japan-foodie/my-page.html)]
 
 
+## Rebuild Instructions
 
-## Roadblocks
-
-✔️ When fetching the restaurant data from https://tabelog.com/ using the Scrapy framework, I encountered the issue that the website only allows scraping 60 pages - which is round 1200 restaurants with a rating from 3~4 (out of 5). For the next release, I will add more functions in the code to get more evenly distributed and comprehensive data.
-
-✔️ For the Choropleth map of restaurants in Japan Choropleth map Linked to another page due to D3 version compatibility. For the next release, will modify the code to the same version of D3.
-
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-
-## Linking Portfolio to Github
-
-Generate a Github personal access token following these [instructions](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) (make sure you don't select any scope just generate a simple token).
-
-
-## Technologies Used 
-
-- [React](https://reactjs.org/)
-- [graphql](https://graphql.org/)
-- [apollo-boost](https://www.apollographql.com/docs/react/get-started/)
-- [react-twitter-embed](https://github.com/saurabhnemade/react-twitter-embed)
-- [react-easy-emoji](https://github.com/appfigures/react-easy-emoji)
-- [react-headroom](https://github.com/KyleAMathews/react-headroom)
-- [color-thief](https://github.com/lokesh/color-thief)
++ Clone the repositoty by running `git clone git@github.com:laceett/japan-foodie.git`
++ Open the folder locally with VSCode and start coding with a new branch by running `git checkout -b <MY_BRANCH_NAME>`
++ View changes locally by clicking **Live Server**
++ Commit changes by running `git add <NEW_FILE_NAME>` and `git commit -m "<COMMIT_MSG>"`
++ Push the code by running `git push origin <MY_BRANCH_NAME>`
 
 
 ## For the Future
-If you can help us with these. Please don't hesitate to open a [pull request](https://github.com/...).
 
-- Connect with LinkedIn to get Summary, Skills, Education and Experience
-
+If you can help us with these. Please don't hesitate to open a [pull request](https://github.com/laceett/japan-foodie/issues).
 
 ## Project Maintainers 
 
-
-
----
-
+<td align="center"><a href="https://github.com/laceett"><img src="https://avatars3.githubusercontent.com/u/33075375?s=400&u=63aa9c0b047dcf26c82ecde36a0afdfd72e5e3ad&v=4" width="100px;" alt=""/><br /><sub><b>Lacee Xu</b></sub></a></td>
 
 
 

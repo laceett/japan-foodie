@@ -47,11 +47,32 @@ With this project, I’d like to provide useful information about Japanese food 
 
 ## Rebuild Instructions
 
-+ Clone the repositoty by running `git clone git@github.com:laceett/japan-foodie.git`
+#### Getting Started
++ Clone the repository by running `git clone git@github.com:laceett/japan-foodie.git`
 + Open the folder locally with VSCode and start coding with a new branch by running `git checkout -b <MY_BRANCH_NAME>`
 + View changes locally by clicking **Live Server** on VSCode
 + Commit changes by running `git add <NEW_FILE_NAME>` and `git commit -m "<COMMIT_MSG>"`
 + Push the code by running `git push origin <MY_BRANCH_NAME>`
+
+#### Scrapy Quick Start(optional)
+Crawling data is not necessary for this project since data is already added to the project folders.
++ Go to /scrapy/ directory
++ Set up and activate virtual environment in Python 3
+  + `Python -m venv scrapy_env`
+  +`source scrapy_env/bin/activate`
++ Install packages
+  + `pip install scrapy`
+  + `pip install googletrans`
++ Run scrapy
+  + `scrapy crawl <crawler name>`
+  + <crawler name> defined in spider class under variable ‘name’
++ Save results into csv
+  + `scrapy crawl business_hours -o result.csv -t csv`
++ Modifying spiders
+  + Go to `scrapy/tabelog/spiders` folder and the different spiders crawl different data sets
+  + Modify `_spider.py` files to obtain desired data
+
+
 
 
 ## For the Future

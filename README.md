@@ -49,7 +49,7 @@ With this project, I’d like to provide useful information about Japanese food 
 
 + Clone the repositoty by running `git clone git@github.com:laceett/japan-foodie.git`
 + Open the folder locally with VSCode and start coding with a new branch by running `git checkout -b <MY_BRANCH_NAME>`
-+ View changes locally by clicking **Live Server**
++ View changes locally by clicking **Live Server** on VSCode
 + Commit changes by running `git add <NEW_FILE_NAME>` and `git commit -m "<COMMIT_MSG>"`
 + Push the code by running `git push origin <MY_BRANCH_NAME>`
 

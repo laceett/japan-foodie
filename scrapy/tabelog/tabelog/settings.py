@@ -66,8 +66,10 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
 #    'tabelog.pipelines.TabelogPipeline': 300,
-   'tabelog.pipelines.JsonWriterPipeline': 1,
+   # 'tabelog.pipelines.JsonWriterPipeline': 1,
 }
+
+FEED_EXPORT_FIELDS = ['prefecture', 'category', 'name', 'rating', 'num_reviews', 'price_range']
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

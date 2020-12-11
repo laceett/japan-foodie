@@ -21,15 +21,15 @@ class JsonWriterPipeline(object):
         self.restaurants_exporter = JsonItemExporter(self.restaurants_file, encoding='utf-8', ensure_ascii=False, indent=4)
         self.restaurants_exporter.start_exporting()
 
-        self.reviews_exporter = JsonItemExporter(self.reviews_file, encoding='utf-8', ensure_ascii=False, indent=4)
-        self.reviews_exporter.start_exporting()
+        # self.reviews_exporter = JsonItemExporter(self.reviews_file, encoding='utf-8', ensure_ascii=False, indent=4)
+        # self.reviews_exporter.start_exporting()
 
     def close_spider(self, spider):
         self.restaurants_exporter.finish_exporting()
-        self.reviews_exporter.finish_exporting()
+        # self.reviews_exporter.finish_exporting()
 
         self.restaurants_file.close()
-        self.reviews_file.close()
+        # self.reviews_file.close()
     
     def process_item(self, item, spider):
         if isinstance(item, RestaurantItem):
